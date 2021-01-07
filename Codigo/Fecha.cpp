@@ -1,152 +1,42 @@
-/***********************************************************************
- * Module:  Fecha.cpp
- * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 17:50:01
- * Purpose: Implementation of the class Fecha
- ***********************************************************************/
-
 #include "Fecha.h"
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::getDia()
-// Purpose:    Implementation of Fecha::getDia()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-int Fecha::getDia(void)
-{
-   return dia;
+Fecha::Fecha() {
+    this->anio = 0;
+    this->mes = 0;
+    this->dia = 0;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::setDia(int newDia)
-// Purpose:    Implementation of Fecha::setDia()
-// Parameters:
-// - newDia
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Fecha::setDia(int newDia)
-{
-   dia = newDia;
+Fecha::Fecha(int dia, int mes, int anio) {
+    this->anio = anio;
+    this->mes = mes;
+    this->dia = dia;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::getMes()
-// Purpose:    Implementation of Fecha::getMes()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-int Fecha::getMes(void)
-{
-   return mes;
+void Fecha::generar_fecha() {
+    time_t current_time;
+    struct tm  local_time;
+    time(&current_time);
+    localtime_s(&local_time, &current_time);
+    anio = local_time.tm_year + 1900;
+    mes = local_time.tm_mon + 1;
+    dia = local_time.tm_mday;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::setMes(int newMes)
-// Purpose:    Implementation of Fecha::setMes()
-// Parameters:
-// - newMes
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Fecha::setMes(int newMes)
-{
-   mes = newMes;
+int Fecha::get_anio() {
+    return anio;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::getAno()
-// Purpose:    Implementation of Fecha::getAno()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-int Fecha::getAno(void)
-{
-   return ano;
+int Fecha::get_mes() {
+    return mes;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::setAno(int newAno)
-// Purpose:    Implementation of Fecha::setAno()
-// Parameters:
-// - newAno
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Fecha::setAno(int newAno)
-{
-   ano = newAno;
+int Fecha::get_dia() {
+    return dia;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::getHora()
-// Purpose:    Implementation of Fecha::getHora()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-int Fecha::getHora(void)
-{
-   return hora;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::setHora(int newHora)
-// Purpose:    Implementation of Fecha::setHora()
-// Parameters:
-// - newHora
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Fecha::setHora(int newHora)
-{
-   hora = newHora;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::getMinutos()
-// Purpose:    Implementation of Fecha::getMinutos()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-int Fecha::getMinutos(void)
-{
-   return minutos;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::setMinutos(int newMinutos)
-// Purpose:    Implementation of Fecha::setMinutos()
-// Parameters:
-// - newMinutos
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Fecha::setMinutos(int newMinutos)
-{
-   minutos = newMinutos;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::getSegundos()
-// Purpose:    Implementation of Fecha::getSegundos()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-int Fecha::getSegundos(void)
-{
-   return segundos;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha::setSegundos(int newSegundos)
-// Purpose:    Implementation of Fecha::setSegundos()
-// Parameters:
-// - newSegundos
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Fecha::setSegundos(int newSegundos)
-{
-   segundos = newSegundos;
+std::string Fecha::get_fecha() {
+    std::string s_anio(std::to_string(anio));
+    std::string s_mes(std::to_string(mes));
+    std::string s_dia(std::to_string(dia));
+    return s_dia + "/" + s_mes + "/" + s_anio + "\n";
 }
