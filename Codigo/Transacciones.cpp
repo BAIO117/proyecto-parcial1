@@ -23,7 +23,7 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////
 
 Transacciones::Transacciones(){
-   Fecha = new Fecha();
+   fecha = new Fecha();
 }
 
 bool Transacciones::deposito(Lista cuentas, string idCuenta)
