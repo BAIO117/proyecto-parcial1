@@ -191,4 +191,21 @@ bool Lista::buscar(string id){
     return respuesta;
 }
 
+Cuenta Lista::buscarYTraer(string id){
+	Nodo* aux = new Nodo();
+    Nodo* aux1 = new Nodo();
+    Cuenta auxC;
+    aux = this->lista;
+    while (aux != this->listaFinal)
+    {
+        if(aux->getCuenta()->getId()==id){
+		auxC=aux->getCuenta();
+        
+        }
+      
+        aux1 = aux;
+        aux = aux->getSiguiente();
+    }
 
+    return auxC;
+}
