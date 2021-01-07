@@ -1,80 +1,43 @@
-/***********************************************************************
- * Module:  Nodo.cpp
- * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 22:28:01
- * Purpose: Implementation of the class Nodo
- ***********************************************************************/
-
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sstream>
 #include "Nodo.h"
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getDato()
-// Purpose:    Implementation of Nodo::getDato()
-// Return:     Persona
-////////////////////////////////////////////////////////////////////////
-
-Persona Nodo::getDato(void)
+using namespace std;
+Nodo::Nodo(){
+    this->siguiente=NULL;
+    this->anterior=NULL;
+}
+Nodo::Nodo (Persona persona, Nodo* siguiente, Nodo* anterior)
 {
-   return dato;
+    this->persona=persona;
+    this->siguiente=siguiente;
+    this->anterior=anterior;
+}
+void Nodo::setPersona(Persona persona)
+{
+    this->persona=persona;
+}
+void Nodo::setSiguiente(Nodo* nodo)
+{
+    this->siguiente=nodo;
+}
+void Nodo::setAnterior(Nodo* nodo)
+{
+    this->anterior=nodo;
+}
+Persona Nodo::getPersona()
+{
+    return this->persona;
+}
+Nodo* Nodo::getSiguiente()
+{
+    return this->siguiente;
+}
+Nodo* Nodo::getAnterior()
+{
+    return this->anterior;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setDato(Persona newDato)
-// Purpose:    Implementation of Nodo::setDato()
-// Parameters:
-// - newDato
-// Return:     void
-////////////////////////////////////////////////////////////////////////
 
-void Nodo::setDato(Persona newDato)
-{
-   dato = newDato;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getSig()
-// Purpose:    Implementation of Nodo::getSig()
-// Return:     Nodo
-////////////////////////////////////////////////////////////////////////
-
-Nodo Nodo::getSig(void)
-{
-   return sig;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setSig(Nodo newSig)
-// Purpose:    Implementation of Nodo::setSig()
-// Parameters:
-// - newSig
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setSig(Nodo newSig)
-{
-   sig = newSig;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getAnterior()
-// Purpose:    Implementation of Nodo::getAnterior()
-// Return:     Nodo
-////////////////////////////////////////////////////////////////////////
-
-Nodo Nodo::getAnterior(void)
-{
-   return anterior;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setAnterior(Nodo newAnterior)
-// Purpose:    Implementation of Nodo::setAnterior()
-// Parameters:
-// - newAnterior
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setAnterior(Nodo newAnterior)
-{
-   anterior = newAnterior;
-}
+Nodo::~Nodo() {}

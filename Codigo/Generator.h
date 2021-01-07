@@ -8,14 +8,14 @@
 #if !defined(__Proyecto_Parcial_1_Generator_h)
 #define __Proyecto_Parcial_1_Generator_h
 
-#include "ListaDoble.h"
+#include "Lista.h"
 
 using namespace std;
 
 class Generator
 {
 public:
-   	string crearCorreo(string apellido, string nombre, ListaDoble* gente);
+   	string crearCorreo(string apellido, string nombre, Lista* gente);
 	string generarNumeroDeCuenta(void);
 	Generator();
 	~Generator();	

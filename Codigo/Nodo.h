@@ -1,32 +1,20 @@
-/***********************************************************************
- * Module:  Nodo.h
- * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 22:28:01
- * Purpose: Declaration of the class Nodo
- ***********************************************************************/
-
-#if !defined(__Proyecto_Parcial_1_Nodo_h)
-#define __Proyecto_Parcial_1_Nodo_h
-
-#include <Persona.h>
-
+#include "Persona.cpp"
 class Nodo
 {
 public:
-   Persona getDato(void);
-   void setDato(Persona newDato);
-   Nodo getSig(void);
-   void setSig(Nodo newSig);
-   Nodo getAnterior(void);
-   void setAnterior(Nodo newAnterior);
-
-protected:
+    Nodo();
+    Nodo (Persona, Nodo*siguiente, Nodo*anterior);
+    void setPersona(Persona persona);
+    void setSiguiente(Nodo* nodo);
+    void setAnterior(Nodo* nodo);
+    Persona getPersona();
+    Nodo* getSiguiente();
+    Nodo* getAnterior();
+    string toString();
+    //void mostrar();
+    virtual ~Nodo();
 private:
-   Persona dato;
-   Nodo sig;
-   Nodo anterior;
-
-
+    Persona persona;
+    Nodo* siguiente;
+    Nodo* anterior;
 };
-
-#endif

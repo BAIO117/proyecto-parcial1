@@ -10,7 +10,7 @@
 
 using namespace std;
 
-string Generator::crearCorreo(string apellido, string nombre, ListaEnlazada* people) {
+string Generator::crearCorreo(string apellido, string nombre, Lista* people) {
 
 	//string dominio = "@espe.edu.ec";
 	//string apellido = per->getApellido();
