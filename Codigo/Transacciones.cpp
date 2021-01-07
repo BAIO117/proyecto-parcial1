@@ -8,6 +8,9 @@
 #include "Transacciones.h"
 #include "Cuenta.h"
 #incldue "Lista.h"
+#include <iostream>
+
+using namespace std;
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Transacciones::deposito(Cuenta cuenta, float valor)
@@ -58,5 +61,4 @@ void Transacciones::retiro(Cuenta cuenta, float valor)
 
 void Transacciones::comprobante(void)
 {
-   // TODO : implement
 }
