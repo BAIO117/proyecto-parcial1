@@ -8,22 +8,21 @@
 #if !defined(__Proyecto_Parcial_1_Generator_h)
 #define __Proyecto_Parcial_1_Generator_h
 
-class Persona;
-class Cuenta;
+#include "Lista.h"
+
+using namespace std;
 
 class Generator
 {
 public:
-   int generarCorreo(void);
-   int generarNumeroDeCuenta(void);
-
-   Persona** persona;
-   Cuenta** cuenta;
-
+   	string crearCorreo(string apellido, string nombre, Lista* gente);
+	string generarNumeroDeCuenta(void);
+	Generator();
+	~Generator();	
+	
 protected:
 private:
-   int dominio;
-
+   string dominio;
 
 };
 
