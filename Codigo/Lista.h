@@ -8,6 +8,7 @@ public:
     void borrarInicio();
     void borrarFinal();
     void borrarEntre(int);
+    void buscar(string);
     string rCorreoL(Persona);
     Nodo* getLista();
     Nodo* getListaFinal();

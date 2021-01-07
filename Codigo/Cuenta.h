@@ -19,12 +19,15 @@ public:
    //bool getTarjeta();
    void setId(string);
    void setSaldo(float);
+   Persona getPersona();
+   void setPersona(Persona);
    //void setTarjeta(bool); 
 
 protected:
 private:
    std::string id;
    float saldo;
+   Persona persona;
    //bool tarjeta;
 
 

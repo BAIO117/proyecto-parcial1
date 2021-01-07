@@ -8,9 +8,10 @@
 #if !defined(__Proyecto_Parcial_1_Persona_h)
 #define __Proyecto_Parcial_1_Persona_h
 #include "Fecha.h
-#include "Cuenta.h"
 
-
+#include "Lista.h"
+#include <string>
+using namespace std;
 
 
 class Persona
@@ -27,8 +28,8 @@ public:
    Fecha getEdad(void);
    void setEdad(Fecha newEdad);
    void mostrarInformacion();
-   friend class Cuenta;
 
+   
 
 protected:
 private:
@@ -37,8 +38,7 @@ private:
    std::string cedula;
    std::string correo;
    Fecha edad;
-   Cuenta* cuentas;
-
+  
 
 };
 

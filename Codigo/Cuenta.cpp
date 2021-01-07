@@ -33,6 +33,12 @@ void Cuenta::setSaldo(float newSaldo){
 /*void Cuenta::setTarjeta(bool newTarjeta){
 	tarjeta=newTarjeta;
 }*/
+Persona Cuenta::getPersona(){
+	return persona;
+}
+void Cuenta::setPersona(Persona newPersona){
+	persona=newPersona;
+}
 
 void Cuenta::mostrarInformacion(void)
 {
