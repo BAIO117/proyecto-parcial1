@@ -18,15 +18,10 @@ public:
    Transacciones();
    bool deposito(Lista, srtring);
    void retiro(Cuenta cuenta, float valor);
-
+   void comprobante(Cuenta,float,char);
 protected:
 private:
-   void comprobante(Cuenta,float,char);
-
    Fecha fecha;
-
-
 };
-Transacciones
 
 #endif
