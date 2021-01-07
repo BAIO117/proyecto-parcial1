@@ -15,12 +15,12 @@ class Cuenta
 public:
    void mostrarInformacion(void);
 
-   Transacciones** transacciones;
+   Transacciones transacciones;
 
 protected:
 private:
    std::string id;
-   int saldo;
+   float saldo;
    bool tarjeta;
 
 

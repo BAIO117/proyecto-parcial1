@@ -8,11 +8,8 @@
 #include "Transacciones.h"
 #include "Cuenta.h"
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Cuenta::mostrarInformacion()
-// Purpose:    Implementation of Cuenta::mostrarInformacion()
-// Return:     void
-////////////////////////////////////////////////////////////////////////
+
+
 
 void Cuenta::mostrarInformacion(void)
 {
