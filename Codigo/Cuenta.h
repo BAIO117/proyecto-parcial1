@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Cuenta.h
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 16:37:35
+ * Modified: miÃ©rcoles, 6 de enero de 2021 16:37:35
  * Purpose: Declaration of the class Cuenta
  ***********************************************************************/
 
@@ -14,13 +14,13 @@ class Cuenta
 {
 public:
    void mostrarInformacion(void);
-
    Transacciones** transacciones;
-
+   float getSaldo();
+   void setSaldo(float);
 protected:
 private:
    std::string id;
-   int saldo;
+   float saldo;
    bool tarjeta;
 
 
