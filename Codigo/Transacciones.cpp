@@ -59,6 +59,19 @@ void Transacciones::retiro(Cuenta cuenta, float valor)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Transacciones::comprobante(void)
+void Transacciones::comprobante(Cuenta cuenta, float monto, char T)
 {
+   Persona auxP;
+   cout<<"Comprobante de Transaccion"<<endl;
+   if(T=='R'){
+      cout<<"Tipo de transaccion: Retiro"<<endl;
+   }else{
+      cout<<"Tipo de transaccion: Deposito"<<endl;
+   }
+   cout<<"Datos de la cuenta bancara: "<<endl;
+   cuenta.mostrarInformacion<<endl;
+   cout<<"Monto de transaccion: "<<monto<<endl;
+   auxP = cuenta.getPersona();
+   cout<<"Datos del titular:"<<endl;
+   auxP.mostrarInformacion<<endl;
 }
