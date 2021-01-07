@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Transacciones.h
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 17:49:50
+ * Modified: miÃ©rcoles, 6 de enero de 2021 17:49:50
  * Purpose: Declaration of the class Transacciones
  ***********************************************************************/
 
@@ -14,7 +14,7 @@
 class Transacciones
 {
 public:
-   void deposito(Cuenta cuenta, float valor);
+   void deposito(Lista cuenta, srtring idCuenta);
    void retiro(Cuenta cuenta, float valor);
 
 protected:
