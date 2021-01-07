@@ -15,6 +15,7 @@
 class Transacciones
 {
 public:
+   Transacciones();
    bool deposito(Lista, srtring);
    void retiro(Cuenta cuenta, float valor);
 
@@ -26,5 +27,6 @@ private:
 
 
 };
+Transacciones
 
 #endif
