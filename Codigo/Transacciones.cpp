@@ -23,11 +23,18 @@ using namespace std;
 
 bool Transacciones::deposito(Lista cuentas, string idCuenta)
 {
+  
    bool respuesta=false;
    float monto;
    if(cuentas.buscar(idCuenta)){
       cout<<"Ingrese el monto que se desea depositar en la cuenta: ";
       cin>>monto;
+      while (monto < 0)
+      {
+         cout<<"Ingrese nuevamente el monto que se desea depositar en la cuenta: ";
+         cin>>monto;
+      }
+      
       Cuenta aux;
       aux=cuentas.buscarYTraer(idCuenta);
       aux.setSaldo(aux.getSaldo()+monto);
