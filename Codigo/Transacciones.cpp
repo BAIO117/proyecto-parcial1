@@ -7,7 +7,7 @@
 
 #include "Transacciones.h"
 #include "Cuenta.h"
-#incldue "Lista.h"
+#include "Lista.h"
 #include <iostream>
 
 using namespace std;
@@ -20,6 +20,12 @@ using namespace std;
 // - valor
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
+
+Transacciones::Transacciones( Fecha _Fecha){
+
+   Fecha= _Fecha;
+
+}
 
 bool Transacciones::deposito(Lista cuentas, string idCuenta)
 {
