@@ -6,6 +6,8 @@
  ***********************************************************************/
 
 #include "Transacciones.h"
+#include "Cuenta.h"
+#incldue "Lista.h"
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Transacciones::deposito(Cuenta cuenta, float valor)
@@ -16,20 +18,22 @@
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Transacciones::deposito(Lista cuenta, string idCuenta)
+bool Transacciones::deposito(Lista cuentas, string idCuenta)
 {
+   bool respuesta=false;
    float monto;
-   if(cuenta.comprobarBusqueda(idCuenta)){
-      cuenta.mostrar(idCuenta);
+   if(cuentas.buscar(idCuenta)){
       cout<<"Ingrese el monto que se desea depositar en la cuenta: ";
       cin>>monto;
       Cuenta aux;
-      aux=cuenta.buscar(idCuenta);
+      aux=cuentas.buscarYTraer(idCuenta);
       aux.setSaldo(aux.getSaldo()+monto);
       cout<<"Transaccion exitosa!";
+      respuesta=true;
    }else{
       cout<<"Por favor ingresar un número de cuenta válido"<<endl;
    }
+   return respuesta;
 }
 
 ////////////////////////////////////////////////////////////////////////
