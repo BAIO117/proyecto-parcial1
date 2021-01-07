@@ -10,6 +10,7 @@
 
 #include <Fecha.h>
 #include <Cuenta.h>
+#include <Lista.h>
 
 class Transacciones
 {
@@ -19,7 +20,7 @@ public:
 
 protected:
 private:
-   void comprobante(void);
+   void comprobante(Cuenta);
 
    Fecha fecha;
 
