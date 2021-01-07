@@ -7,14 +7,43 @@
 
 #include "Transacciones.h"
 #include "Cuenta.h"
+#include <string>
+#include <iostream>
+using namespace std;
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Cuenta::mostrarInformacion()
-// Purpose:    Implementation of Cuenta::mostrarInformacion()
-// Return:     void
-////////////////////////////////////////////////////////////////////////
+string Cuenta::getId(){
+	return id;
+}
+
+float Cuenta::getSaldo(){
+	return saldo;
+}
+
+/*bool Cuenta::getTarjeta(){
+	return tarjeta;
+}*/
+
+void Cuenta::setId(string newId){
+	id=newId;
+}
+void Cuenta::setSaldo(float newSaldo){
+	saldo=newSaldo;
+}
+
+/*void Cuenta::setTarjeta(bool newTarjeta){
+	tarjeta=newTarjeta;
+}*/
+Persona Cuenta::getPersona(){
+	return persona;
+}
+void Cuenta::setPersona(Persona newPersona){
+	persona=newPersona;
+}
 
 void Cuenta::mostrarInformacion(void)
 {
-   // TODO : implement
+	cout<<"El saldo es:"<<saldo<<endl;
+	cout<<"El numero cuenta es:"<<id<<endl;
+	//cout<<"Dispone tarjeta:"<<tarjeta<<endl;
+   
 }

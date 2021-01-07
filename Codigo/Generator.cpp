@@ -5,28 +5,33 @@
  * Purpose: Implementation of the class Generator
  ***********************************************************************/
 
-#include "Persona.h"
 #include "Cuenta.h"
 #include "Generator.h"
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Generator::generarCorreo()
-// Purpose:    Implementation of Generator::generarCorreo()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
+using namespace std;
 
-int Generator::generarCorreo(void)
-{
-   // TODO : implement
+string Generator::crearCorreo(string apellido, string nombre, Lista* people) {
+
+	//string dominio = "@espe.edu.ec";
+	//string apellido = per->getApellido();
+	string correo = apellido[0] + nombre + dominio;
+	nodo* p = people->getNodo();
+	int cont = 1;
+	while (p != NULL) {
+	
+		if (correo == p->getDatoNodo()->getCorreo()) {
+			
+			correo = apellido[0] + nombre + to_string(cont) + dominio;
+			cont += 1;
+		}
+		p = p->getEnlaceNodo();
+	}
+
+	return correo;
+
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Generator::generarNumeroDeCuenta()
-// Purpose:    Implementation of Generator::generarNumeroDeCuenta()
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
-int Generator::generarNumeroDeCuenta(void)
+string Generator::Generator()
 {
-   // TODO : implement
+   this->dominio = "@espe.edu.ec";
 }

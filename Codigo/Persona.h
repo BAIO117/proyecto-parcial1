@@ -7,12 +7,12 @@
 
 #if !defined(__Proyecto_Parcial_1_Persona_h)
 #define __Proyecto_Parcial_1_Persona_h
+#include "Fecha.h"
 
-class Cuenta;
-class Fecha;
+#include "Lista.h"
+#include <string>
+using namespace std;
 
-#include <Fecha.h>
-#include <Cuenta.h>
 
 class Persona
 {
@@ -27,9 +27,9 @@ public:
    void setCorreo(std::string newCorreo);
    Fecha getEdad(void);
    void setEdad(Fecha newEdad);
+   void mostrarInformacion();
 
-   Cuenta** cuenta;
-   Fecha* fecha;
+   
 
 protected:
 private:
@@ -38,8 +38,7 @@ private:
    std::string cedula;
    std::string correo;
    Fecha edad;
-   Cuenta* cuentas;
-
+  
 
 };
 

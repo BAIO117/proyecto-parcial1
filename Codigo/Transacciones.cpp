@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Transacciones.cpp
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 17:49:50
+ * Modified: miï¿½rcoles, 6 de enero de 2021 17:49:50
  * Purpose: Implementation of the class Transacciones
  ***********************************************************************/
 
@@ -18,7 +18,13 @@
 
 void Transacciones::deposito(Cuenta cuenta, float valor)
 {
-   // TODO : implement
+    if (valor < 0)
+    {
+        throw "amount cant be negative";
+    }
+
+    float saldoActualizado = cuenta.getSaldo() + valor;
+    cuenta.setSaldo(saldoActualizado);
 }
 
 ////////////////////////////////////////////////////////////////////////
