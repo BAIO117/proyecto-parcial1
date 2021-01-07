@@ -8,13 +8,10 @@
 #if !defined(__Proyecto_Parcial_1_Cuenta_h)
 #define __Proyecto_Parcial_1_Cuenta_h
 
-class Transacciones;
-
 class Cuenta
 {
 public:
    void mostrarInformacion(void);
-   Transacciones** transacciones;
    float getSaldo();
    void setSaldo(float);
 protected:
