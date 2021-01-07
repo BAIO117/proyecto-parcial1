@@ -8,7 +8,7 @@ public:
     void borrarInicio();
     void borrarFinal();
     void borrarEntre(int);
-    void buscar(string);
+    bool buscar(string);
     string rCorreoL(Persona);
     Nodo* getLista();
     Nodo* getListaFinal();
@@ -21,5 +21,6 @@ public:
 private:
     Nodo* lista;
     Nodo* listaFinal;
+    
 
 };

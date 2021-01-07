@@ -7,7 +7,7 @@
 
 #if !defined(__Proyecto_Parcial_1_Persona_h)
 #define __Proyecto_Parcial_1_Persona_h
-#include "Fecha.h
+#include "Fecha.h"
 
 #include "Lista.h"
 #include <string>

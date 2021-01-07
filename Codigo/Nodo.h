@@ -1,20 +1,21 @@
 #include "Persona.cpp"
+#include "Cuenta.h"
 class Nodo
 {
 public:
     Nodo();
-    Nodo (Persona, Nodo*siguiente, Nodo*anterior);
-    void setPersona(Persona persona);
+    Nodo (Cuenta, Nodo*siguiente, Nodo*anterior);
+    void setCuenta(Cuenta cuenta);
     void setSiguiente(Nodo* nodo);
     void setAnterior(Nodo* nodo);
-    Persona getPersona();
+    Cuenta getCuenta();
     Nodo* getSiguiente();
     Nodo* getAnterior();
     string toString();
     //void mostrar();
     virtual ~Nodo();
 private:
-    Persona persona;
+    Cuenta cuenta;
     Nodo* siguiente;
     Nodo* anterior;
 };

@@ -170,4 +170,25 @@ string Lista::rCorreoL(Persona persona){
         return persona.rCorreo(n);
 }
 
+bool Lista::buscar(string id){
+	Nodo* aux = new Nodo();
+    Nodo* aux1 = new Nodo();
+
+    aux = this->lista;
+
+    bool respuesta = false;
+    while (aux != this->listaFinal)
+    {
+        if(aux->getCuenta()->getId()==id){
+		respuesta=true;
+        
+        }
+      
+        aux1 = aux;
+        aux = aux->getSiguiente();
+    }
+
+    return respuesta;
+}
+
 

@@ -13,7 +13,7 @@ using namespace std;
 class Cuenta
 {
 public:
-   void mostrarInformacion(Persona);
+   void mostrarInformacion();
    string getId();
    float getSaldo();
    //bool getTarjeta();

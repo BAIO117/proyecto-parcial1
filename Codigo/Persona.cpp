@@ -8,6 +8,9 @@
 #include "Cuenta.h"
 #include "Fecha.h"
 #include "Persona.h"
+#include <string>
+
+using namespace std;
 
 
 std::string Persona::getNombre(void)

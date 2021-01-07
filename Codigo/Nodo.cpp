@@ -8,15 +8,15 @@ Nodo::Nodo(){
     this->siguiente=NULL;
     this->anterior=NULL;
 }
-Nodo::Nodo (Persona persona, Nodo* siguiente, Nodo* anterior)
+Nodo::Nodo (Cuenta cuenta, Nodo* siguiente, Nodo* anterior)
 {
-    this->persona=persona;
+    this->cuenta=cuenta;
     this->siguiente=siguiente;
     this->anterior=anterior;
 }
-void Nodo::setPersona(Persona persona)
+void Nodo::setCuenta(Cuenta cuenta)
 {
-    this->persona=persona;
+    this->cuenta=cuenta;
 }
 void Nodo::setSiguiente(Nodo* nodo)
 {
@@ -26,9 +26,9 @@ void Nodo::setAnterior(Nodo* nodo)
 {
     this->anterior=nodo;
 }
-Persona Nodo::getPersona()
+Cuenta Nodo::getCuenta()
 {
-    return this->persona;
+    return this->cuenta;
 }
 Nodo* Nodo::getSiguiente()
 {
