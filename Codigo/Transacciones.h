@@ -15,12 +15,12 @@
 class Transacciones
 {
 public:
-   bool deposito(Lista cuenta, srtring idCuenta);
+   bool deposito(Lista, srtring);
    void retiro(Cuenta cuenta, float valor);
 
 protected:
 private:
-   void comprobante(Cuenta);
+   void comprobante(Cuenta,float,char);
 
    Fecha fecha;
 
