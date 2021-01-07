@@ -7,11 +7,33 @@
 
 #include "Transacciones.h"
 #include "Cuenta.h"
+#include <string>
+using namespace std;
 
+string Cuenta::getId(){
+	return id;
+}
 
+float Cuenta::getSaldo(){
+	return saldo;
+}
 
+bool Cuenta::getTarjeta(){
+	return tarjeta;
+}
 
-void Cuenta::mostrarInformacion(void)
+void Cuenta::setId(string newId){
+	id=newId;
+}
+void Cuenta::setSaldo(float newSaldo){
+	saldo=newSaldo;
+}
+
+void Cuenta::setTarjeta(bool newTarjeta){
+	tarjeta=newTarjeta;
+}
+
+void Cuenta::mostrarInformacion(Persona persona)
 {
    // TODO : implement
 }
