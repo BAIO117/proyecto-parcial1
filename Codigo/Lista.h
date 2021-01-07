@@ -9,6 +9,7 @@ public:
     void borrarFinal();
     void borrarEntre(int);
     bool buscar(string);
+    bool buscarYTraer(string);
     string rCorreoL(Persona);
     Nodo* getLista();
     Nodo* getListaFinal();
