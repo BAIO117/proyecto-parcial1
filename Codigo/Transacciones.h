@@ -14,7 +14,7 @@
 class Transacciones
 {
 public:
-   void deposito(Lista cuenta, srtring idCuenta);
+   bool deposito(Lista cuenta, srtring idCuenta);
    void retiro(Cuenta cuenta, float valor);
 
 protected:
