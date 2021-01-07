@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Transacciones.cpp
  * Author:  ismae
- * Modified: mi�rcoles, 6 de enero de 2021 17:49:50
+ * Modified: miércoles, 6 de enero de 2021 17:49:50
  * Purpose: Implementation of the class Transacciones
  ***********************************************************************/
 
@@ -16,9 +16,20 @@
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Transacciones::deposito(Cuenta cuenta, float valor)
+void Transacciones::deposito(Lista cuenta, string idCuenta)
 {
-   // TODO : implement
+   float monto;
+   if(cuenta.comprobarBusqueda(idCuenta)){
+      cuenta.mostrar(idCuenta);
+      cout<<"Ingrese el monto que se desea depositar en la cuenta: ";
+      cin>>monto;
+      Cuenta aux;
+      aux=cuenta.buscar(idCuenta);
+      aux.setSaldo(aux.getSaldo()+monto);
+      cout<<"Transaccion exitosa!";
+   }else{
+      cout<<"Por favor ingresar un número de cuenta válido"<<endl;
+   }
 }
 
 ////////////////////////////////////////////////////////////////////////
