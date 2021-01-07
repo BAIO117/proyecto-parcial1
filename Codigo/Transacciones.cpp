@@ -6,6 +6,10 @@
  ***********************************************************************/
 
 #include "Transacciones.h"
+#include "Cuenta.h"
+#include <iostream>
+
+using namespace std;
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Transacciones::deposito(Cuenta cuenta, float valor)
@@ -32,7 +36,21 @@ void Transacciones::deposito(Cuenta cuenta, float valor)
 
 void Transacciones::retiro(Cuenta cuenta, float valor)
 {
-   // TODO : implement
+	
+	// CONDICIONAL DE CHECKEO
+	if (cuenta.getSaldo() <= valor) // SI SE CUMPLE, ENTRAMOS AL CONDICIONAL
+	{
+
+		cuenta.setSaldo(cuenta.getSaldo() - valor) ;
+
+		cout << "\nHas retirado exitosamente " << valor << "USD, tu saldo actual es de " << cuenta.getSaldo();
+
+	}
+	else
+	{
+		cout << "\nNo tienes suficiente dinero, tu saldo actual es de"<< cuenta.getSaldo();
+	}
+
 }
 
 ////////////////////////////////////////////////////////////////////////

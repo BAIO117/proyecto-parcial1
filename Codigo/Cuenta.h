@@ -7,6 +7,7 @@
 
 #if !defined(__Proyecto_Parcial_1_Cuenta_h)
 #define __Proyecto_Parcial_1_Cuenta_h
+#include <string>
 
 class Transacciones;
 
@@ -15,12 +16,17 @@ class Cuenta
 public:
    void mostrarInformacion(void);
 
+
    Transacciones** transacciones;
 
+   void setSaldo(float);
+   float getSaldo();
+
+
 protected:
-private:
+public:
    std::string id;
-   int saldo;
+   float saldo;
    bool tarjeta;
 
 

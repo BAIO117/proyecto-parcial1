@@ -18,3 +18,12 @@ void Cuenta::mostrarInformacion(void)
 {
    // TODO : implement
 }
+
+void Cuenta::setSaldo(float) {
+
+	this->saldo = saldo;
+}
+float Cuenta::getSaldo() {
+
+	return this->saldo;
+}
