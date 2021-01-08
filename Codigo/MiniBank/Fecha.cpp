@@ -6,88 +6,45 @@
  ***********************************************************************/
 
 #include "Fecha.h"
-#include <string>
 
 
-int Fecha::getDia(void)
-{
-	return dia;
+Fecha::Fecha() {
+    this->anio = 0;
+    this->mes = 0;
+    this->dia = 0;
 }
 
-
-void Fecha::setDia(int newDia)
-{
-	dia = newDia;
+Fecha::Fecha(int dia, int mes, int anio) {
+    this->anio = anio;
+    this->mes = mes;
+    this->dia = dia;
 }
 
-
-
-int Fecha::getMes(void)
-{
-	return mes;
+void Fecha::generar_fecha() {
+    time_t current_time;
+    struct tm  local_time;
+    time(&current_time);
+    localtime_s(&local_time, &current_time);
+    anio = local_time.tm_year + 1900;
+    mes = local_time.tm_mon + 1;
+    dia = local_time.tm_mday;
 }
 
-
-
-void Fecha::setMes(int newMes)
-{
-	mes = newMes;
+int Fecha::get_anio() {
+    return anio;
 }
 
-
-
-int Fecha::getAno(void)
-{
-	return ano;
+int Fecha::get_mes() {
+    return mes;
 }
 
-
-
-void Fecha::setAno(int newAno)
-{
-	ano = newAno;
+int Fecha::get_dia() {
+    return dia;
 }
 
-
-
-int Fecha::getHora(void)
-{
-	return hora;
-}
-
-
-
-void Fecha::setHora(int newHora)
-{
-	hora = newHora;
-}
-
-
-int Fecha::getMinutos(void)
-{
-	return minutos;
-}
-
-
-
-void Fecha::setMinutos(int newMinutos)
-{
-	minutos = newMinutos;
-}
-
-
-
-int Fecha::getSegundos(void)
-{
-	return segundos;
-}
-
-
-void Fecha::setSegundos(int newSegundos)
-{
-	segundos = newSegundos;
-}
-
-std::string Fecha::toString(void){
-   return dia+"/"+mes+"/"+ano;
+std::string Fecha::get_fecha() {
+    std::string s_anio(std::to_string(anio));
+    std::string s_mes(std::to_string(mes));
+    std::string s_dia(std::to_string(dia));
+    return s_dia + "/" + s_mes + "/" + s_anio + "\n";
 }

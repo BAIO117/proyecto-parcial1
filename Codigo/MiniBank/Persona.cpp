@@ -83,6 +83,6 @@ void Persona::mostrarInformacion(){
    cout<<"Apellido: "<<apellido<<endl;
    cout<<"Cedula: "<<cedula<<endl;
    cout<<"Correo electronico: "<<endl;
-   cout<< edad.toString()<<endl;
+   //cout<< edad.toString()<<endl;
    //edad.toString();
 }

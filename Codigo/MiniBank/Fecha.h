@@ -1,31 +1,24 @@
 #pragma once
 
+#include <stdio.h>
+#include <string>
+#include <time.h>
 
 class Fecha
 {
-public:
-	int getDia(void);
-	void setDia(int newDia);
-	int getMes(void);
-	void setMes(int newMes);
-	int getAno(void);
-	void setAno(int newAno);
-	int getHora(void);
-	void setHora(int newHora);
-	int getMinutos(void);
-	void setMinutos(int newMinutos);
-	int getSegundos(void);
-	void setSegundos(int newSegundos);
-	string toString(void);
 
-protected:
 private:
-	int dia;
-	int mes;
-	int ano;
-	int hora;
-	int minutos;
-	int segundos;
+    int anio;
+    int mes;
+    int dia;
+public:
+    Fecha();
+    Fecha(int, int, int);
+    void generar_fecha();
+    int get_anio();
+    int get_mes();
+    int get_dia();
+    std::string get_fecha();
 
 };
 

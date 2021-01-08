@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ahorros.cpp" />
+    <ClCompile Include="CalculoEdad.cpp" />
     <ClCompile Include="Cuenta.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Generador.cpp" />
     <ClCompile Include="IngresoDatos.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Opciones.cpp" />
     <ClCompile Include="Persona.cpp" />
@@ -153,11 +155,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ahorros.h" />
+    <ClInclude Include="CalculoEdad.h" />
     <ClInclude Include="Cuenta.h" />
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="Generador.h" />
     <ClInclude Include="IngresoDatos.h" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Opciones.h" />
     <ClInclude Include="Persona.h" />
