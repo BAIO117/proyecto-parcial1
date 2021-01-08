@@ -151,6 +151,7 @@ void Fecha::setSegundos(int newSegundos)
    segundos = newSegundos;
 }
 
-void  Fecha::toString(void){
-   return dia+"/"+mes+"/"+ano;
+std::string Fecha::toString(void){
+   std:: string aux=std::to_string(dia)+"-"+std::to_string(mes)+ "-"+std::to_string(ano);
+   return aux;
 }
