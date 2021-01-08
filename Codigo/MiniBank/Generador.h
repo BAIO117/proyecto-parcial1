@@ -1,16 +1,17 @@
 #pragma once
-#include<string>
 #include "Lista.h"
+#include<string>
+
 
 using  namespace std;
 
 class Generador
 {
 public:
-	string crearCorreo(string apellido, string nombre, Lista* gente);
-	string generarNumeroDeCuenta(void);
+	string crearCorreo(string, string, Lista*);
+	//string generarNumeroDeCuenta(void);
 	Generador();
-	~Generador();
+	//~Generador();
 
 protected:
 private:

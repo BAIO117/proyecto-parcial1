@@ -160,3 +160,11 @@ Cuenta Lista::buscarYTraer(string id) {
 
     return auxCuenta;
 }
+
+Nodo* Lista::getLista() {
+    return this->lista;
+}
+
+Nodo* Lista::getListaFinal() {
+    return this->listaFinal;
+}

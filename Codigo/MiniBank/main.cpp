@@ -34,7 +34,7 @@ void  mostrarmenu()
 void menu(Lista *cuentas){
     IngresoDatos ingreso;
     Cuenta *cuenta = new Cuenta();
-    Generador gen;
+    Generador *gen = new Generador();
     string nombre,apellido,cedula,correo;
     int opc;
     mostrarmenu();
@@ -52,7 +52,7 @@ void menu(Lista *cuentas){
             cuenta->getPersona().setApellido(apellido);
             cedula = ingreso.IngresoTexto("Ingrese la cedula de la persona: ");
             cuenta->getPersona().setCedula(cedula);
-            correo = gen.crearCorreo(apellido, nombre, cuentas);
+            correo = gen->crearCorreo(apellido, nombre, cuentas);
 
             cuenta->getPersona().setCorreo(correo);
             system("pause");

@@ -147,6 +147,7 @@
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nodo.cpp" />
+    <ClCompile Include="Opciones.cpp" />
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="Transacciones.cpp" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="IngresoDatos.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="Opciones.h" />
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Transacciones.h" />
   </ItemGroup>

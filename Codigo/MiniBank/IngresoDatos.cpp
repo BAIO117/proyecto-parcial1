@@ -27,7 +27,7 @@ string IngresoDatos::IngresoNumero(string mensaje) {
 
     string num = "";
     char dig;
-    int numero;
+    //int numero;
 
     cout << "\n\t" << mensaje << "\n\t";
     dig = _getch();
@@ -42,8 +42,8 @@ string IngresoDatos::IngresoNumero(string mensaje) {
     //istringstream(num) >> numero;
     return num;
 }
-
-int IngresoPersona::validarCedula(string dato){ 
+/*
+int IngresoDatos::validarCedula(string dato){ 
     int cedula[10];
     string aux;
     for (int i=0;i<10;i++){
@@ -60,6 +60,7 @@ int IngresoPersona::validarCedula(string dato){
         //printf("Error en el codigo de provincia.\n");
         return 0;
     }
-    if(cedula[0]==2 && (cedula[1]<1 || cedula[1]>4))
+    if(cedula[0]==2 && (cedula[1]<1 || cedula[1]>4)){
     }
-    
+}
+    */

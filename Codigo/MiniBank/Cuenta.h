@@ -3,6 +3,12 @@
 //#include <string>
 #include "Persona.h"
 
+enum TipoDeCuenta {
+	Ahorros = 1,
+	Corriente= 0
+};
+
+
 class Cuenta
 {
 

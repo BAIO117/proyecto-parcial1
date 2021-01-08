@@ -1,10 +1,4 @@
 ﻿  Generador.cpp
-  IngresoDatos.cpp
-D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\IngresoDatos.cpp(30,9): warning C4101: 'numero': variable local sin referencia
-D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\IngresoDatos.cpp(46,5): error C2653: 'IngresoPersona': no es un nombre de clase o espacio de nombres
-D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\IngresoDatos.cpp(64,5): error C2059: error de sintaxis: '}'
-  main.cpp
-D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\main.cpp(55,63): error C2664: 'std::string Generador::crearCorreo(std::string,std::string,Lista *)': el argumento 3 no puede convertirse de 'Cuenta *' a 'Lista *'
-D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\main.cpp(55,56): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
-D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\Generador.h(10,9): message : vea la declaración de 'Generador::crearCorreo'
+  Lista.cpp
   Generando código...
+  MiniBank.vcxproj -> D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.exe
