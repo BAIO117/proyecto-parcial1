@@ -12,6 +12,7 @@ using namespace std;
 int main()
 {
     Lista* cuentas = new Lista();
+    Cuenta cuenta;
     Menu menu; Opciones opc;
     int opcion,retiDepo;
     string opcMenu[] = {"Crear Cuenta","Movimientos","Mostrar","Salir"};
@@ -26,7 +27,8 @@ int main()
         switch (opcion)
         {
         case 1:
-            opc.IngresarnuevaCuenta(cuentas);
+            cuenta = opc.IngresarnuevaCuenta();
+            cuentas->insertarInicio(cuenta);
             break;
         case 2:
                 retiDepo = menu.hacerMenu("Realizar Trasaccion", SubMenuTransacciones, 3);
@@ -47,7 +49,9 @@ int main()
             switch (retiDepo)
             {
             case 1:
-                opc.mostarCuentas(cuentas);
+                system("cls");
+                cuentas->toString();
+                system("pause");
                 break;
             case 2:
                 opc.buscarCuenta(cuentas);

@@ -10,7 +10,7 @@ string IngresoDatos::IngresoTexto(string mensaje) {
     string text = "";
     char letter;
 
-    cout << "\n\t" << mensaje << "\n\t";
+    cout << "\n\t" << mensaje << "\t";
     letter = _getch();
     while (letter != 13) {
 
@@ -29,7 +29,7 @@ string IngresoDatos::IngresoNumero(string mensaje) {
     char dig;
     //int numero;
 
-    cout << "\n\t" << mensaje << "\n\t";
+    cout << "\n\t" << mensaje << " ";
     dig = _getch();
     while (dig != 13) {
 

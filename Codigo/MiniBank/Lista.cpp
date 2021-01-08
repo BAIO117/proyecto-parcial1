@@ -17,6 +17,27 @@ bool Lista::listaVacia()
     return lista == NULL;
 }
 
+void Lista::toString() {
+
+    Nodo* aux = new Nodo();
+    Nodo* aux1 = new Nodo();
+
+    aux = this->lista;
+
+    while (aux != this->listaFinal)
+    {
+        cout << "\tPropietario: " << aux->getCuenta().getPersona().getNombre()<< aux->getCuenta().getPersona().getApellido() << endl;
+        cout << "\tCedula: " << aux->getCuenta().getPersona().getCedula() << endl;
+        cout << "\tNumero de cuenta: " << aux->getCuenta().getId() ;
+        cout << "\tSaldo disponible: " << aux->getCuenta().getSaldo()<< endl;
+        cout << "\tTipo de cuenta: " << aux->getCuenta().getTipoDeCuenta() << endl;
+       
+        aux1 = aux;
+        aux = aux->getSiguiente();
+    }
+
+}
+
 int Lista::tamanio()
 {
     Nodo* aux = new Nodo();
@@ -41,7 +62,7 @@ void Lista::insertarInicio(Cuenta dato)
     {
         this->lista = new Nodo(dato, this->listaFinal, this->listaFinal);
         this->listaFinal = this->lista;
-        cout << "EXITO";
+        cout << "\tEXITO";
     }
     else
     {

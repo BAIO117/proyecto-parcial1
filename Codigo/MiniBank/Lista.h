@@ -22,7 +22,7 @@ public:
     Nodo* getListaFinal();
     //void borrar(string );
     bool listaVacia();
-    string toString();
+    void toString();
     int tamanio();
     void imprimirLista();
 private:
