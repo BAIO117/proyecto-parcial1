@@ -2,8 +2,10 @@
 
 
 #pragma once
+
 class Opciones
 {
+public:			
 	void IngresarnuevaCuenta(Lista* cuentas);
 	void realizarRetiro(Lista* cuentas);
 	void realizarDeposito(Lista* cuentas);

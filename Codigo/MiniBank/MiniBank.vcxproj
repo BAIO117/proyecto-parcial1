@@ -141,8 +141,10 @@
   <ItemGroup>
     <ClCompile Include="Ahorros.cpp" />
     <ClCompile Include="CalculoEdad.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cuenta.cpp" />
     <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="Fuente.cpp" />
     <ClCompile Include="Generador.cpp" />
     <ClCompile Include="IngresoDatos.cpp" />
     <ClCompile Include="Lista.cpp" />
@@ -150,21 +152,27 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Opciones.cpp" />
+    <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Persona.cpp" />
+    <ClCompile Include="Resaltador.cpp" />
     <ClCompile Include="Transacciones.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ahorros.h" />
     <ClInclude Include="CalculoEdad.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Cuenta.h" />
     <ClInclude Include="Fecha.h" />
+    <ClInclude Include="Fuente.h" />
     <ClInclude Include="Generador.h" />
     <ClInclude Include="IngresoDatos.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Opciones.h" />
+    <ClInclude Include="Consola.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Resaltador.h" />
     <ClInclude Include="Transacciones.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

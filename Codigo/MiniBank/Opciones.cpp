@@ -7,6 +7,7 @@
 
 void Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 
+	system("cls");
 	/*
 	*	Istrucciones:
 	*		-Ingresar uneva cuenta
@@ -24,6 +25,8 @@ void Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 
 void Opciones::realizarDeposito(Lista* cuentas) {
 
+	system("cls");
+	
 	/*
 	*	Istrucciones:
 	*		-Pedir el monto 
@@ -38,6 +41,7 @@ void Opciones::realizarDeposito(Lista* cuentas) {
 
 void Opciones::realizarRetiro(Lista* cuentas) {
 
+	system("cls");
 	/*
 	*	Istrucciones:
 	*		-Pedir el monto
@@ -53,6 +57,7 @@ void Opciones::realizarRetiro(Lista* cuentas) {
 
 void Opciones::buscarCuenta(Lista* cuentas) {
 
+	system("cls");
 	/*
 	*	Istrucciones:
 	*		-Pedir un identificador para la cuenta
@@ -68,6 +73,7 @@ void Opciones::buscarCuenta(Lista* cuentas) {
 
 void Opciones::mostarCuentas(Lista* cuentas) {
 
+	system("cls");
 	/*
 	*	Istrucciones:
 	*		-Mostrar informacion de las cuentas	(Propietario, numero de cuenta , saldo actual)  
