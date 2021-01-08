@@ -42,6 +42,14 @@ void Cuenta::setPersona(Persona newPersona) {
 	persona = newPersona;
 }
 
+int Cuenta::getTipoDeCuenta() {
+	return tipoDeCuenta;
+}
+
+void Cuenta::setTipoDeCuenta(int tipo) {
+	this->tipoDeCuenta = tipo;
+}
+
 void Cuenta::mostrarInformacion(void)
 {
 	cout << "El saldo es:" << saldo << endl;

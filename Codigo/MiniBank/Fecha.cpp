@@ -42,6 +42,16 @@ int Fecha::get_dia() {
     return dia;
 }
 
+void Fecha::setDia(int newDia) {
+    dia = newDia;
+}
+void Fecha::setMes(int newMes) {
+    mes = newMes;
+}
+void Fecha::setAnio(int newAnio) {
+    anio = newAnio;
+}
+
 std::string Fecha::get_fecha() {
     std::string s_anio(std::to_string(anio));
     std::string s_mes(std::to_string(mes));

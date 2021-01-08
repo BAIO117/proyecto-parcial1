@@ -3,11 +3,12 @@
 //#include <string>
 #include "Persona.h"
 
+
+
 enum TipoDeCuenta {
 	Ahorros = 1,
-	Corriente= 0
+	Corriente = 2
 };
-
 
 class Cuenta
 {
@@ -21,13 +22,19 @@ public:
 	void setSaldo(float);
 	Persona getPersona();
 	void setPersona(Persona);
+	void setTipoDeCuenta(int);
+	int getTipoDeCuenta();
 	//void setTarjeta(bool); 
-
+	enum TipoDeCuenta {
+		Ahorros = 1,
+		Corriente = 2
+	};
 protected:
 private:
 	std::string id;
-	float saldo;
+	float saldo = 0.0f;
 	Persona persona;
+	int tipoDeCuenta;
 	//bool tarjeta;
 
 

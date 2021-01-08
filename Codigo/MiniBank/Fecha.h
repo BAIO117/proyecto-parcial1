@@ -19,6 +19,9 @@ public:
     int get_mes();
     int get_dia();
     std::string get_fecha();
+    void setDia(int);
+    void setMes(int);
+    void setAnio(int);
 
 };
 
