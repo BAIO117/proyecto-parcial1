@@ -161,26 +161,8 @@ Cuenta Lista::buscarYTraer(string id) {
     return auxCuenta;
 }
 
-<<<<<<< HEAD:Codigo/Lista.cpp
-Cuenta Lista::buscarYTraer(string id){
-	Nodo* aux = new Nodo();
-    Nodo* aux1 = new Nodo();
-    Cuenta auxC;
-    aux = this->lista;
-    while (aux != this->listaFinal)
-    {
-        if(aux->getCuenta()->getId()==id){
-		auxC=aux->getCuenta();
-        
-        }
-      
-        aux1 = aux;
-        aux = aux->getSiguiente();
-    }
 
-    return auxC;
-}
-=======
+
 Nodo* Lista::getLista() {
     return this->lista;
 }
@@ -188,4 +170,4 @@ Nodo* Lista::getLista() {
 Nodo* Lista::getListaFinal() {
     return this->listaFinal;
 }
->>>>>>> 27bb99032ce8e24f548d2d1118e34eac47b93624:Codigo/MiniBank/Lista.cpp
+
