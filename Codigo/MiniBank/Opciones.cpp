@@ -10,7 +10,7 @@
 using namespace std;
 
 
-Cuenta Opciones::IngresarnuevaCuenta() {
+Cuenta Opciones::IngresarnuevaCuenta(Lista *cuentas) {
 
 	system("cls");
 
@@ -67,8 +67,10 @@ Cuenta Opciones::IngresarnuevaCuenta() {
 	}
 
 	//persona.mostrarInformacion();
+	persona.setCorreo(generador.crearCorreo(persona.getApellido(), persona.getNombre(),cuentas));
 	cuenta.setPersona(persona);
 	//cuenta.mostrarInformacion();
+	//cuentas->insertarInicio(cuenta);
 	cout << endl<<"\t";
 	system("pause");
 

@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ahorros.cpp" />
     <ClCompile Include="CalculoEdad.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cuenta.cpp" />
@@ -158,7 +157,6 @@
     <ClCompile Include="Transacciones.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ahorros.h" />
     <ClInclude Include="CalculoEdad.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cuenta.h" />

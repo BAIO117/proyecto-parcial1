@@ -6,7 +6,7 @@
 class Opciones
 {
 public:			
-	Cuenta IngresarnuevaCuenta();
+	Cuenta IngresarnuevaCuenta(Lista *cuentas);
 	void realizarRetiro(Lista* cuentas);
 	void realizarDeposito(Lista* cuentas);
 	void mostarCuentas(Lista* cuentas);

@@ -1,2 +1,4 @@
 D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.exe
 D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.pdb
+C:\Users\hp\Documents\TERCER SEMESTRE\Estructura de Datos\trabajo primer parcial\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.exe
+C:\Users\hp\Documents\TERCER SEMESTRE\Estructura de Datos\trabajo primer parcial\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.pdb

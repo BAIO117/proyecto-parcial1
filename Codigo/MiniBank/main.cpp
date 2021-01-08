@@ -27,7 +27,8 @@ int main()
         switch (opcion)
         {
         case 1:
-            cuenta = opc.IngresarnuevaCuenta();
+            //opc.IngresarnuevaCuenta(cuentas);
+            cuenta = opc.IngresarnuevaCuenta(cuentas);
             cuentas->insertarInicio(cuenta);
             break;
         case 2:
