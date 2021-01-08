@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Fecha.h
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 17:50:01
+ * Modified: miÃ©rcoles, 6 de enero de 2021 17:50:01
  * Purpose: Declaration of the class Fecha
  ***********************************************************************/
 
@@ -23,6 +23,7 @@ public:
    void setMinutos(int newMinutos);
    int getSegundos(void);
    void setSegundos(int newSegundos);
+   string toString(void);
 
 protected:
 private:

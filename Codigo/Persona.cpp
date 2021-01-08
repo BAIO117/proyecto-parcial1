@@ -1,7 +1,11 @@
 /***********************************************************************
  * Module:  Persona.cpp
  * Author:  ismae
+<<<<<<< HEAD
  * Modified: mi�rcoles, 6 de enero de 2021 16:37:35
+=======
+ * Modified: miércoles, 6 de enero de 2021 16:37:35
+>>>>>>> 91193d8401a184800f5639dd63c002d2c5368d55
  * Purpose: Implementation of the class Persona
  ***********************************************************************/
 
@@ -78,10 +82,18 @@ void Persona::setEdad(Fecha newEdad)
 {
    edad = newEdad;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 91193d8401a184800f5639dd63c002d2c5368d55
 void Persona::mostrarInformacion(){
    cout<<"Nombre: "<<nombre<<endl;
    cout<<"Apellido: "<<apellido<<endl;
    cout<<"Cedula: "<<cedula<<endl;
    cout<<"Correo electronico: "<<endl;
+<<<<<<< HEAD
    //edad.toString();
+=======
+   cout<<edad.toString()<<endl;
+>>>>>>> 91193d8401a184800f5639dd63c002d2c5368d55
 }

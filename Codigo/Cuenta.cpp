@@ -1,7 +1,11 @@
 /***********************************************************************
  * Module:  Cuenta.cpp
  * Author:  ismae
+<<<<<<< HEAD
  * Modified: mi�rcoles, 6 de enero de 2021 16:37:35
+=======
+ * Modified: miércoles, 6 de enero de 2021 16:37:35
+>>>>>>> 91193d8401a184800f5639dd63c002d2c5368d55
  * Purpose: Implementation of the class Cuenta
  ***********************************************************************/
 
@@ -48,4 +52,8 @@ void Cuenta::mostrarInformacion(void)
 	cout<<"El numero cuenta es:"<<id<<endl;
 	cout<<"-----Datos del titular de la cuenta-----"<<endl;
 	persona.mostrarInformacion();
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 91193d8401a184800f5639dd63c002d2c5368d55
