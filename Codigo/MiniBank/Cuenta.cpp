@@ -2,7 +2,7 @@
 /***********************************************************************
  * Module:  Cuenta.cpp
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 16:37:35
+ * Modified: miï¿½rcoles, 6 de enero de 2021 16:37:35
  * Purpose: Implementation of the class Cuenta
  ***********************************************************************/
 
@@ -46,6 +46,8 @@ void Cuenta::mostrarInformacion(void)
 {
 	cout << "El saldo es:" << saldo << endl;
 	cout << "El numero cuenta es:" << id << endl;
+	cout<<"-----Datos del titular de la cuenta-----"<<endl;
+	persona.mostrarInformacion();
 	//cout<<"Dispone tarjeta:"<<tarjeta<<endl;
 
 }

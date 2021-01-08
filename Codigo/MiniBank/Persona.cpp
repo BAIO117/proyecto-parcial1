@@ -1,13 +1,14 @@
 /***********************************************************************
  * Module:  Persona.cpp
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 16:37:35
+ * Modified: miï¿½rcoles, 6 de enero de 2021 16:37:35
  * Purpose: Implementation of the class Persona
  ***********************************************************************/
 
 #include "Fecha.h"
 #include "Persona.h"
 #include <string>
+#include<iostream>
 
 using namespace std;
 
@@ -76,4 +77,12 @@ Fecha Persona::getEdad(void)
 void Persona::setEdad(Fecha newEdad)
 {
 	edad = newEdad;
+}
+void Persona::mostrarInformacion(){
+   cout<<"Nombre: "<<nombre<<endl;
+   cout<<"Apellido: "<<apellido<<endl;
+   cout<<"Cedula: "<<cedula<<endl;
+   cout<<"Correo electronico: "<<endl;
+   cout<< edad.toString()<<endl;
+   //edad.toString();
 }

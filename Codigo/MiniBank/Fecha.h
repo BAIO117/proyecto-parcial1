@@ -16,6 +16,7 @@ public:
 	void setMinutos(int newMinutos);
 	int getSegundos(void);
 	void setSegundos(int newSegundos);
+	string toString(void);
 
 protected:
 private:
