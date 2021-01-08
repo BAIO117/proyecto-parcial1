@@ -20,6 +20,7 @@ public:
 	Fecha getEdad(void);
 	void setEdad(Fecha newEdad);
 	void mostrarInformacion();
+	
 
 
 

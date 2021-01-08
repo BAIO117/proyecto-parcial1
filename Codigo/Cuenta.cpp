@@ -1,14 +1,16 @@
 /***********************************************************************
  * Module:  Cuenta.cpp
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 16:37:35
+ * Modified: miï¿½rcoles, 6 de enero de 2021 16:37:35
  * Purpose: Implementation of the class Cuenta
  ***********************************************************************/
 
+#include "Persona.h"
 #include "Transacciones.h"
 #include "Cuenta.h"
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 string Cuenta::getId(){
@@ -44,6 +46,6 @@ void Cuenta::mostrarInformacion(void)
 {
 	cout<<"El saldo es:"<<saldo<<endl;
 	cout<<"El numero cuenta es:"<<id<<endl;
-	//cout<<"Dispone tarjeta:"<<tarjeta<<endl;
-   
+	cout<<"-----Datos del titular de la cuenta-----"<<endl;
+	persona.mostrarInformacion();
 }

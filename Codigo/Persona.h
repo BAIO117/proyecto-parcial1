@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Persona.h
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 16:37:35
+ * Modified: miï¿½rcoles, 6 de enero de 2021 16:37:35
  * Purpose: Declaration of the class Persona
  ***********************************************************************/
 
@@ -11,6 +11,7 @@
 
 #include "Lista.h"
 #include <string>
+#include"Cuenta.h"
 using namespace std;
 
 
@@ -28,9 +29,9 @@ public:
    Fecha getEdad(void);
    void setEdad(Fecha newEdad);
    void mostrarInformacion();
+   friend class Cuenta;
 
    
-
 protected:
 private:
    std::string nombre;
