@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Fecha.cpp
  * Author:  ismae
- * Modified: miércoles, 6 de enero de 2021 17:50:01
+ * Modified: miÃ©rcoles, 6 de enero de 2021 17:50:01
  * Purpose: Implementation of the class Fecha
  ***********************************************************************/
 
@@ -149,4 +149,8 @@ int Fecha::getSegundos(void)
 void Fecha::setSegundos(int newSegundos)
 {
    segundos = newSegundos;
+}
+
+void  Fecha::toString(void){
+   return dia+"/"+mes+"/"+ano;
 }
