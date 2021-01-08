@@ -139,8 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ahorros.cpp" />
     <ClCompile Include="Cuenta.cpp" />
     <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="Generador.cpp" />
+    <ClCompile Include="IngresoDatos.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nodo.cpp" />
@@ -148,8 +151,11 @@
     <ClCompile Include="Transacciones.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ahorros.h" />
     <ClInclude Include="Cuenta.h" />
     <ClInclude Include="Fecha.h" />
+    <ClInclude Include="Generador.h" />
+    <ClInclude Include="IngresoDatos.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Persona.h" />

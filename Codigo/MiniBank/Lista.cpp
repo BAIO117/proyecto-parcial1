@@ -1,4 +1,7 @@
 #include "Lista.h"
+#include "Nodo.h"
+#include "Cuenta.h"
+
 #include <iostream>
 
 using namespace std;
@@ -113,4 +116,47 @@ void Lista::insertarEntre(Cuenta dato, int n)
 
     }
     cout << "EXITO";
+}
+
+bool Lista::buscar(string id) {
+    Nodo* aux = new Nodo();
+    Nodo* aux1 = new Nodo();
+
+    aux = this->lista;
+
+    bool respuesta = false;
+    while (aux != this->listaFinal)
+    {
+        if (aux->getCuenta().getId() == id) {
+            respuesta = true;
+
+        }
+
+        aux1 = aux;
+        aux = aux->getSiguiente();
+    }
+
+    return respuesta;
+}
+
+Cuenta Lista::buscarYTraer(string id) {
+    Nodo* aux = new Nodo();
+    Nodo* aux1 = new Nodo();
+    Cuenta auxCuenta;
+    aux = this->lista;
+    while (aux != this->listaFinal)
+    {
+
+        
+        if (aux->getCuenta().getId() == id) {
+            auxCuenta = aux->getCuenta();
+
+        }
+    
+
+        aux1 = aux;
+        aux = aux->getSiguiente();
+    }
+
+    return auxCuenta;
 }

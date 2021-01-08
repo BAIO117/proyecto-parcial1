@@ -14,6 +14,7 @@ public:
     void borrarFinal();
     void borrarEntre(int);
     bool buscar(string);
+    Cuenta buscarYTraer(string );
     string rCorreoL(Cuenta);
     Nodo* getLista();
     Nodo* getListaFinal();

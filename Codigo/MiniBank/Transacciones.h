@@ -2,13 +2,14 @@
 
 #include "Fecha.h"
 #include "Cuenta.h"
+#include "Lista.h"
 
 class Transacciones
 {
 
 public:
-	void deposito(Cuenta cuenta, float valor);
-	void retiro(Cuenta cuenta, float valor);
+	bool deposito(Lista cuentas, string idCuenta);
+	bool retiro(Lista cuentas, string idCuenta);
 
 protected:
 private:
