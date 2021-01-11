@@ -20,6 +20,7 @@ public:
     Cuenta buscarYTraer(string );
     string rCorreoL(Cuenta);
     Nodo* getNodo();
+    void setNodo(Nodo*);
     //void borrar(string );
     bool listaVacia();
     void toString();

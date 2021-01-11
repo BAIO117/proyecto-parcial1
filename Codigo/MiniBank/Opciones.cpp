@@ -155,14 +155,15 @@ void Opciones::realizarDeposito(Lista* cuentas) {
 
 	do
 	{
+		system("cls");
 		pantalla.gotoxy(2, 3);
-		dato = ingreso.IngresoNumero("Ingrese numero de cuenta:                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+		dato = ingreso.IngresoNumero("Ingrese numero de cuenta:  ");
 		deposito.movimiento(cuentas, dato);
 
 	} while (dato == "" || dato.size() != 12);
 
 
-	cout << "\n\t";
+	cout << endl << "\t";
 	system("pause");
 
 

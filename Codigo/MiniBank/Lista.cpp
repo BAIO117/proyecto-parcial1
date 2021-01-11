@@ -34,7 +34,7 @@ void Lista::toString() {
             cout << "\tPropietario: " << aux->getCuenta().getPersona().getNombre() <<" "<< aux->getCuenta().getPersona().getApellido() << endl;
             cout << "\tCedula: " << aux->getCuenta().getPersona().getCedula() << endl;
             cout << "\tNumero de cuenta: " << aux->getCuenta().getId();
-            cout << "   Saldo disponible: " << aux->getCuenta().getSaldo() << endl;
+            cout << "\n\tSaldo disponible: " << aux->getCuenta().getSaldo() << endl;
             cout << "\tTipo de cuenta: " << ((aux->getCuenta().getTipoDeCuenta()==1)? "Ahorros":"Corriente") << endl;
             cout << "\tCorreo del propietario: " << aux->getCuenta().getPersona().getCorreo() << endl;
             cout << "\t----------------------------------------------------" << endl;
@@ -204,12 +204,9 @@ void Lista::modificarNodo(string id,float saldo) {
     {
 
         if ( aux->getCuenta().getId() == id) {
-            auxCuenta = aux->getCuenta();
-            //auxCuenta.mostrarInformacion();
-            cout<<aux->getCuenta().getSaldo()<<endl;
-            aux->getCuenta().setSaldo(saldo);
-            cout << saldo << endl;
-            cout << aux->getCuenta().getSaldo() << endl;
+            auxCuenta = aux->getCuenta();            
+            auxCuenta.setSaldo(saldo);
+            aux->setCuenta(auxCuenta);
 
         }
 
@@ -221,6 +218,10 @@ void Lista::modificarNodo(string id,float saldo) {
 
 Nodo* Lista::getNodo() {
     return this->nodo;
+}
+
+void Lista::setNodo(Nodo *nodo) {
+    this->nodo = nodo;
 }
 
 
