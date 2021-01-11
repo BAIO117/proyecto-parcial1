@@ -132,18 +132,15 @@ void Opciones::realizarRetiro(Lista* cuentas) {
 }
 
 void Opciones::buscarCuenta(Lista* cuentas) {
+	string cuenta;
+	Cuenta cuenta1;
 
 	system("cls");
-	/*
-	*	Istrucciones:
-	*		-Pedir un identificador para la cuenta
-	*		-El identificador puede ser cedula o numero de cuenta el que quieran implementar
-	*		-Mostrar informacion de la cuenta	(Propietario, numero de cuenta , saldo actual) 
-	*	Validaciones:
-	*		-Verificar que exista la cuenta
-	*		-Validar cedula o numero de cuenta
-	*		
-	*/
+	
+	cout << "Ingrese su numero de cuenta" << endl;
+	cin >> cuenta;
+	cuenta1=cuentas->buscarYTraer(cuenta);
+	cuenta1.mostrarInformacion();
 
 }
 

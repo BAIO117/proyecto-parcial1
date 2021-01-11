@@ -71,5 +71,5 @@ bool Transacciones::retiro(Lista cuentas, string idCuenta)
 
 void Transacciones::comprobante(void)
 {
-	// TODO : implement
+	
 }
