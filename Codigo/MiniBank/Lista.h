@@ -10,6 +10,7 @@ public:
     void insertarInicio(Cuenta);
     void insertarFinal(Cuenta);
     void insertarEntre(Cuenta, int n);
+    void modificarNodo(string,float);
     void borrarInicio();
     void borrarFinal();
     void borrarEntre(int);
@@ -18,16 +19,15 @@ public:
     string rCorreoL(Persona);
     Cuenta buscarYTraer(string );
     string rCorreoL(Cuenta);
-    Nodo* getLista();
-    Nodo* getListaFinal();
+    Nodo* getNodo();
     //void borrar(string );
     bool listaVacia();
     void toString();
     int tamanio();
     void imprimirLista();
 private:
-    Nodo* lista;
-    Nodo* listaFinal;
+    Nodo* nodo;
+    
 
 };
 

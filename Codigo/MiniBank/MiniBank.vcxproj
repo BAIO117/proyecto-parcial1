@@ -142,6 +142,7 @@
     <ClCompile Include="CalculoEdad.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Cuenta.cpp" />
+    <ClCompile Include="Deposito.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Fuente.cpp" />
     <ClCompile Include="Generador.cpp" />
@@ -154,12 +155,14 @@
     <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="Resaltador.cpp" />
-    <ClCompile Include="Transacciones.cpp" />
+    <ClCompile Include="Retiro.cpp" />
+    <ClCompile Include="Transferencia.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculoEdad.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cuenta.h" />
+    <ClInclude Include="Deposito.h" />
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="Fuente.h" />
     <ClInclude Include="Generador.h" />
@@ -171,7 +174,8 @@
     <ClInclude Include="Consola.h" />
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Resaltador.h" />
-    <ClInclude Include="Transacciones.h" />
+    <ClInclude Include="Retiro.h" />
+    <ClInclude Include="Transferencia.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

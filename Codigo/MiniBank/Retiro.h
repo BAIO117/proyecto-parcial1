@@ -1,12 +1,9 @@
-#ifndef RETIRO_H
-#define RETIRO_H
-
-#include "Transaccion.h"
-
-class Retiro: public Transaccion
+#pragma once
+#include "Transferencia.h"
+class Retiro :public Transferencia
 {
-	public:
-		void transferir();
+public:
+	void movimiento(Lista*, string);
+
 };
 
-#endif

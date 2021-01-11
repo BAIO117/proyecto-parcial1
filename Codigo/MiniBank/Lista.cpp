@@ -8,100 +8,113 @@ using namespace std;
  
 Lista::Lista()
 {
-    this->lista = NULL;
-    this->listaFinal = NULL;
+    this->nodo = NULL;
 }
 
 bool Lista::listaVacia()
 {
-    return (lista == NULL)?true:false;
+    return (nodo == NULL)?true:false;
 }
 
 void Lista::toString() {
 
-    Nodo* aux = this->lista;
+    Nodo* aux = this->nodo;
     Nodo* aux1 = new Nodo();
 
-    //aux = this->lista;
-
-    while (aux != this->listaFinal)
+    //aux = this->nodo;
+    if (listaVacia())
     {
-        cout << "\tPropietario: " << aux->getCuenta().getPersona().getNombre()<< aux->getCuenta().getPersona().getApellido() << endl;
-        cout << "\tCedula: " << aux->getCuenta().getPersona().getCedula() << endl;
-        cout << "\tNumero de cuenta: " << aux->getCuenta().getId() ;
-        cout << "\tSaldo disponible: " << aux->getCuenta().getSaldo()<< endl;
-        cout << "\tTipo de cuenta: " << aux->getCuenta().getTipoDeCuenta() << endl;
-        cout << "\tCorreo del propietario:" << aux->getCuenta().getPersona().getCorreo() << endl;
-       
-        aux1 = aux;
-        aux = aux->getSiguiente();
+        cout << "\n\n\n\tSIN DATOS....\n\n\t" ;
     }
+    else
+    {
+        while (aux != NULL)
+        {
+            cout << "\t----------------------------------------------------" << endl;
+            cout << "\tPropietario: " << aux->getCuenta().getPersona().getNombre() <<" "<< aux->getCuenta().getPersona().getApellido() << endl;
+            cout << "\tCedula: " << aux->getCuenta().getPersona().getCedula() << endl;
+            cout << "\tNumero de cuenta: " << aux->getCuenta().getId();
+            cout << "   Saldo disponible: " << aux->getCuenta().getSaldo() << endl;
+            cout << "\tTipo de cuenta: " << ((aux->getCuenta().getTipoDeCuenta()==1)? "Ahorros":"Corriente") << endl;
+            cout << "\tCorreo del propietario: " << aux->getCuenta().getPersona().getCorreo() << endl;
+            cout << "\t----------------------------------------------------" << endl;
+           
+            aux = aux->getSiguiente();
+        }
+    }
+
+    
     
 }
 
 int Lista::tamanio()
 {
-    Nodo* aux = new Nodo();
-    Nodo* aux1 = new Nodo();
-
-    aux = this->lista;
-
-    int posicion = 0;
-    while (aux != this->listaFinal)
+    int tamanio = 0;
+    Nodo* aux = this->nodo;
+    Nodo* aux_1 = new Nodo();
+    //aux = this->lista;
+    
+    while (aux != NULL)
     {
-        posicion++;
-        aux1 = aux;
+        tamanio++;
+        aux_1 = aux;
         aux = aux->getSiguiente();
     }
 
-    return posicion + 1;
+    return tamanio ;
 }
 
 void Lista::insertarInicio(Cuenta dato)
 {
     if (this->listaVacia())
     {
-        cout << "OK" << endl;
-        this->lista = new Nodo(dato, this->listaFinal, this->listaFinal);
-        this->listaFinal = this->lista;
-        cout << "\tEXITO";
+        
+        this->nodo = new Nodo(dato, NULL, NULL);
+        //this->listaFinal = this->lista;
+        
     }
     else
     {
-        Nodo* aux = new Nodo(dato, lista, this->listaFinal);
-        this->lista->setAnterior(aux);
-        this->listaFinal->setSiguiente(aux);
-        this->lista = aux;
+    
+        Nodo* aux = new Nodo(dato,nodo, NULL);
+        this->nodo->setAnterior(aux);
+        this->nodo = aux;
     }
 
 }
-
 
 void Lista::insertarFinal(Cuenta dato)
 {
 
     if (this->listaVacia())
     {
-        this->lista = new Nodo(dato, this->listaFinal, this->listaFinal);
-        this->listaFinal = this->lista;
+        this->nodo = new Nodo(dato, NULL, NULL);
     }
     else
     {
-        Nodo* aux = new Nodo(dato, this->lista, this->listaFinal);
-        this->lista->setAnterior(aux);
-        this->listaFinal->setSiguiente(aux);
-        this->listaFinal = aux;
+        Nodo* aux_1 = new Nodo();
+        Nodo* aux_2;
+        Nodo* aux = this->nodo;
+
+        //aux = this->nodo;
+
+        while (aux != NULL)
+        {
+            aux_1 = aux;
+            aux = aux->getSiguiente();
+        }
+
+        aux_2 = new Nodo(dato, aux_1->getSiguiente(), aux_1->getAnterior());
     }
     cout << "EXITO";
 }
-
 
 void Lista::insertarEntre(Cuenta dato, int n)
 {
     if (this->listaVacia())
     {
-        this->lista = new Nodo(dato, this->listaFinal, this->listaFinal);
-        this->listaFinal = this->lista;
+        this->nodo = new Nodo(dato, NULL, NULL);
+      
     }
     else if (n <= 1 || this->tamanio() <= n)
     {
@@ -121,11 +134,11 @@ void Lista::insertarEntre(Cuenta dato, int n)
     }
     else
     {
-        Nodo* aux = this->lista;
+        Nodo* aux = this->nodo;
         Nodo* aux1 = NULL;
 
         int indice = 0;
-        while (aux != this->listaFinal && indice != n)
+        while (aux != NULL && indice != n)
         {
             aux1 = aux;
             aux = aux->getSiguiente();
@@ -145,10 +158,10 @@ bool Lista::buscar(string id) {
     Nodo* aux = new Nodo();
     Nodo* aux1 = new Nodo();
 
-    aux = this->lista;
+    aux = this->nodo;
 
     bool respuesta = false;
-    while (aux != this->listaFinal)
+    while (aux != NULL)
     {
         if (aux->getCuenta().getId() == id) {
             respuesta = true;
@@ -164,33 +177,50 @@ bool Lista::buscar(string id) {
 
 Cuenta Lista::buscarYTraer(string id) {
     Nodo* aux = new Nodo();
-    Nodo* aux1 = new Nodo();
     Cuenta auxCuenta;
-    aux = this->lista;
-    while (aux != this->listaFinal)
+    aux = this->nodo;
+
+    while (aux != NULL)
     {
 
-        
-        if (aux->getCuenta().getId() == id) {
+        if (id == aux->getCuenta().getId()) {
             auxCuenta = aux->getCuenta();
-
+            //auxCuenta.mostrarInformacion();
+            return auxCuenta;
         }
     
-
-        aux1 = aux;
         aux = aux->getSiguiente();
     }
 
     return auxCuenta;
 }
 
+void Lista::modificarNodo(string id,float saldo) {
+    Nodo* aux = new Nodo();
+    Cuenta auxCuenta;
+    aux = this->nodo;
 
+    while (aux != NULL)
+    {
 
-Nodo* Lista::getLista() {
-    return this->lista;
+        if ( aux->getCuenta().getId() == id) {
+            auxCuenta = aux->getCuenta();
+            //auxCuenta.mostrarInformacion();
+            cout<<aux->getCuenta().getSaldo()<<endl;
+            aux->getCuenta().setSaldo(saldo);
+            cout << saldo << endl;
+            cout << aux->getCuenta().getSaldo() << endl;
+
+        }
+
+        aux = aux->getSiguiente();
+    }
+
+    
 }
 
-Nodo* Lista::getListaFinal() {
-    return this->listaFinal;
+Nodo* Lista::getNodo() {
+    return this->nodo;
 }
+
 
