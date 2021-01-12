@@ -1,13 +1,15 @@
 #include "Deposito.h"
+#include "Opciones.h"
 
 #include <iostream>
 using namespace std;
 
 void Deposito::movimiento(Lista* cuentas, string idCuenta) {
+    Opciones opc;
     bool respuesta = false;
     float monto;
     Cuenta aux;
-    if (cuentas->buscar(idCuenta)) {
+    if (opc.buscar(cuentas,idCuenta)) {
         cout << "\n\t Ingrese el monto que se desea depositar: ";
         cin >> monto;
         while (monto < 0)
@@ -17,7 +19,7 @@ void Deposito::movimiento(Lista* cuentas, string idCuenta) {
         }
 
         
-        aux = cuentas->buscarYTraer(idCuenta);
+        aux = opc.buscarYTraer(cuentas,idCuenta);
         cuentas->modificarNodo(idCuenta,aux.getSaldo()+ monto);
         cout << "\n\t Transaccion exitosa!";
         //respuesta = true;
