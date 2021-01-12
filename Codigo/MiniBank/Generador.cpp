@@ -1,32 +1,65 @@
 #include "Generador.h"
 
+#include<iostream>
 
 using namespace std;
+
+bool Generador::existeCorreo(string correo,Lista* cuentas) {
+
+	Nodo* aux = new Nodo();
+	while (aux != NULL)
+	{
+
+		if (correo == aux->getCuenta().getPersona().getCorreo()) {
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+
+	return false;
+}
 
 string Generador::crearCorreo(string apellido, string nombre, Lista* cuentas) {
 
 
-	string correo = apellido[0] + nombre + this->dominio;
+	string correo = nombre[0] + apellido + this->dominio;
 	int cont = 1;
 	Nodo* aux = new Nodo();
-	Nodo* aux1 = new Nodo();
 
-	aux = cuentas->getLista();
+	aux = cuentas->getNodo();
 
-	while (aux != cuentas->getListaFinal())
+	if (existeCorreo(correo,cuentas))
 	{
+		correo = nombre[0] + apellido + to_string(cont) + this->dominio;
+		cont += 1;
+	}
+
+	while (aux != NULL)
+	{
+		while (existeCorreo(correo,cuentas));
 		
-		if ( aux->getCuenta().getPersona().getCorreo() == correo) {
+		correo = nombre[0] + apellido + to_string(cont) + this->dominio;
+		cont += 1;
 
-			correo = apellido[0] + nombre + to_string(cont) + dominio;
-			cont += 1;
-		}
-
-		aux1 = aux;
 		aux = aux->getSiguiente();
 	}
 
 	return correo;
+
+}
+
+string Generador::generarNumeroDeCuenta(string cedula,int tipoDeCuenta) {
+	
+	int numero = (tipoDeCuenta == 1)? 65:67;
+	string cuenta = to_string(numero);
+
+	for (int i = 9; i>=0;i--)
+	{
+		cuenta += cedula[i];
+
+	}
+
+	return cuenta;
 
 }
 

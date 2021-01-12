@@ -9,14 +9,14 @@ class Generador
 {
 public:
 	string crearCorreo(string, string, Lista*);
-	//string generarNumeroDeCuenta(void);
+	string generarNumeroDeCuenta(string,int);
 	Generador();
 	//~Generador();
 
 protected:
 private:
 	string dominio;
-
-
+	bool existeCorreo(string,Lista*);
+	
 };
 

@@ -1,6 +1,8 @@
 #include "Opciones.h"
 #include "IngresoDatos.h"
 #include "Generador.h"
+#include "Deposito.h"
+#include "Retiro.h"
 #include <iostream>
 
 #define DEPOSITO_INICIAL_CORRIENTE  50.0f  
@@ -10,7 +12,7 @@
 using namespace std;
 
 
-Cuenta Opciones::IngresarnuevaCuenta(Lista *cuentas) {
+Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 
 	system("cls");
 
@@ -24,110 +26,168 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista *cuentas) {
 	string dato = "";
 	int tipoCuenta = 0;
 	string dia, mes, anio;
+	int diaEspecial = 28;
+	bool bandera = false;
+	int dias_meses[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+
 
 	system("cls");
-	pantalla.gotoxy(4,4);
-	dato = ingreso.IngresoTexto("Ingrese el nombre:   ");
-	persona.setNombre(dato);
-
-	dato = ingreso.IngresoTexto("Ingrese el apellido:   ");
-	persona.setApellido(dato);
-
-	dato = ingreso.IngresoNumero("Ingrese numero de cedula: ");
-	persona.setCedula(dato);
-
-	dia = ingreso.IngresoNumero("Ingrese su dia de nacimiento: ");
-	mes = ingreso.IngresoNumero("Ingrese su mes de nacimiento: ");
-	anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: ");
-	fechaNacimiento.setDia(stoi(dia)); // = new Fecha(stoi(dia), stoi(mes), stoi(anio));
-	fechaNacimiento.setDia(stoi(dia));
-	fechaNacimiento.setAnio(stoi(anio));
-	persona.setEdad(fechaNacimiento);
-
-
-	pantalla.gotoxy(4, 12);
-	cout << "\tTipo de cuenta: \n";
-	cout << "\t1. Corriente\n";
-	cout << "\t2. Ahorros\n";
+	do {
+		pantalla.gotoxy(4, 4);
+		dato = ingreso.IngresoTexto("Ingrese el nombre:     \b\b\b\b\b ");
+		persona.setNombre(dato);
+	} while (dato == "");
 
 	do
 	{
-		tipoCuenta = stoi(ingreso.IngresoNumero("Digite una opcion : "));
+		pantalla.gotoxy(4, 5);
+		dato = ingreso.IngresoTexto("Ingrese el apellido:    \b\b\b\b\b");
+		persona.setApellido(dato);
+	} while (dato == "");
 
-	} while (tipoCuenta != 1 && tipoCuenta != 2);
+	do
+	{
+		pantalla.gotoxy(4, 6);
+		dato = ingreso.IngresoNumero("Ingrese numero de cedula:                 \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+		persona.setCedula(dato);
+
+	} while (dato == "" || dato.size() != 10 || ingreso.validarCedula(dato) ==0);
+
+	do
+	{
+		pantalla.gotoxy(4, 7);
+		anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):     \b\b\b\b\b");
+
+	} while (anio.size() != 4);
+
+	if (ingreso.anioBisiesto(stoi(anio))) {
+		diaEspecial = 29;
+	}
+
+	do
+	{
+		pantalla.gotoxy(4, 8);
+		mes = ingreso.IngresoNumero("Ingrese su mes de nacimiento: (mm):     \b\b\b\b\b");
+
+	} while (mes.size() != 2 || stoi(mes) <= 0 || stoi(mes) > 12);
+
+	
+	do
+	{
+		pantalla.gotoxy(4, 9);
+		dia = ingreso.IngresoNumero("Ingrese su dia de nacimiento (dd):     \b\b\b\b\b ");
+		if (ingreso.anioBisiesto(stoi(anio)) && stoi(mes)==2) {
+			diaEspecial = 29;
+		}
+		else
+		{
+			diaEspecial = dias_meses[stoi(mes)-1];
+		}
+
+	} while (dia.size() != 2 || stoi(dia) <= 0 || stoi(dia) > diaEspecial);
+
+	
+	fechaNacimiento.setDia(stoi(dia)); // = new Fecha(stoi(dia), stoi(mes), stoi(anio));
+	fechaNacimiento.setMes(stoi(mes));
+	fechaNacimiento.setAnio(stoi(anio));
+	persona.setEdad(fechaNacimiento);
+
+	dato = generador.crearCorreo(persona.getApellido(), persona.getNombre(), cuentas);
+	cout << "\n\t Correo: " << dato;
+	persona.setCorreo(dato);
+
+
+
+	pantalla.gotoxy(4, 13);
+	cout << "\t Tipo de cuenta: \n";
+	cout << "\t   1. Corriente\n";
+	cout << "\t   2. Ahorros\n";
+
+	do
+	{
+		pantalla.gotoxy(4, 17);
+		try
+		{
+			tipoCuenta = stoi(ingreso.IngresoNumero("Digite una opcion:     \b\b\b\b\b "));
+		}
+		catch (const std::exception&)
+		{
+			tipoCuenta = 0;
+		}
+		
+		//if(tipoCuenta != 1 && tipoCuenta != 2)cout << "\033[B";
+		//if (tipoCuenta == NULL) 
+
+	} while (tipoCuenta != 1 && tipoCuenta != 2 );
 
 
 	switch (tipoCuenta) {
 	case cuenta.Ahorros:
 		cuenta.setTipoDeCuenta(cuenta.Ahorros);
 		break;
-	case cuenta.Corriente :
+	case cuenta.Corriente:
 		cuenta.setTipoDeCuenta(cuenta.Corriente);
 		break;
 	}
 
-	//persona.mostrarInformacion();
-	persona.setCorreo(generador.crearCorreo(persona.getApellido(), persona.getNombre(),cuentas));
+	dato = generador.generarNumeroDeCuenta(persona.getCedula(), cuenta.getTipoDeCuenta());
+	cuenta.setId(dato);
+	cout << "\n\n\tNumero de cuenta: "<<dato<< endl;
 	cuenta.setPersona(persona);
-	//cuenta.mostrarInformacion();
-	//cuentas->insertarInicio(cuenta);
-	cout << endl<<"\t";
+
+
+	cout << endl << "\t";
+
 	system("pause");
 
+
 	return cuenta;
-	//generador.crearCorreo(persona.getNombre(), persona.getApellido());
-
-
-	/*cout << "\n\nFECHA DE NACIMIENTO\n";
-	dato = ingreso.IngresoNumero("Dia: ");
-	persona.setEdad(fecha);*/
-
-
-
-	/*
-	*	Istrucciones:
-	*		-Ingresar uneva cuenta
-	*		-El correo y numero de cuenta se genera automaticamente solo toca llamar las funciones
-	*		-Pedir los datos de la persona, pedir el tipo de cuenta , Pedir el deposito inicial
-	*		-Para pedir datos pueden usar los metodo de la clase IngresarDatos por que ya tiene validaciones
-
-	*	Validaciones:
-	*		-Fechas (Año biciesto y mes que no tenga mas de 30 dias)
-	*		-Correo sin repetir, numero de cuenta sin repetir
-	*		-Validar el deposito deacuerdo al tipo de cuenta
-	*/
 
 }
 
 void Opciones::realizarDeposito(Lista* cuentas) {
 
 	system("cls");
+	IngresoDatos ingreso;
+	Deposito deposito;
+	string dato;
 	
-	/*
-	*	Istrucciones:
-	*		-Pedir el monto 
-	*		-Llamar al metodo de la clase Deposito
-	*	Validaciones:
-	*		-No puede ingresar montos negativos
-	*		-No puede ingresar montos menores al DEPOSITO_MINIMO
-	*		
-	*/
+
+	do
+	{
+		system("cls");
+		pantalla.gotoxy(2, 3);
+		dato = ingreso.IngresoNumero("Ingrese numero de cuenta:  ");
+		deposito.movimiento(cuentas, dato);
+
+	} while (dato == "" || dato.size() != 12);
+
+
+	cout << endl << "\t";
+	system("pause");
+
 
 }
 
 void Opciones::realizarRetiro(Lista* cuentas) {
 
 	system("cls");
-	/*
-	*	Istrucciones:
-	*		-Pedir el monto
-	*		-Llamar al metodo de la clase Retiro
-	*	Validaciones:
-	*		-Verificar que exista la cuenta
-	*		-No puede ingresar montos negativos
-	*		-No puede retirar mas de lo que tiene
-	*
-	*/
+	IngresoDatos ingreso;
+	Retiro retiro;
+	string dato;
+
+
+	do
+	{
+		pantalla.gotoxy(2, 3);
+		dato = ingreso.IngresoNumero("Ingrese numero de cuenta:                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+		retiro.movimiento(cuentas, dato);
+
+	} while (dato == "" || dato.size() != 12);
+
+
+	cout << "\n\t";
+	system("pause");
 
 }
 
@@ -136,12 +196,22 @@ void Opciones::buscarCuenta(Lista* cuentas) {
 	Cuenta cuenta1;
 
 	system("cls");
-	
+
 	cout << "Ingrese su numero de cuenta" << endl;
 	cin >> cuenta;
-	cuenta1=cuentas->buscarYTraer(cuenta);
-	cuenta1.mostrarInformacion();
+	cuenta1 = cuentas->buscarYTraer(cuenta);
 
+
+	if (cuenta1.getId() != ""){
+		cuenta1.mostrarInformacion();
+	}
+	else
+	{
+		cout << "No existe el numero de cuenta...." << endl;
+	}
+
+	cout << "\n\t";
+	system("pause");
 }
 
 void Opciones::mostarCuentas(Lista* cuentas) {
@@ -149,12 +219,7 @@ void Opciones::mostarCuentas(Lista* cuentas) {
 	system("cls");
 	cuentas->toString();
 	cout << "\n\t";
+	cout << "\n\t";
 	system("pause");
-	/*
-	*	Istrucciones:
-	*		-Mostrar informacion de las cuentas	(Propietario, numero de cuenta , saldo actual)  
-	*	Validaciones:
-	*		--------
-	*/
 
 }

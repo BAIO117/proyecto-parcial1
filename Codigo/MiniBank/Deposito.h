@@ -1,12 +1,12 @@
-#ifndef DEPOSITO_H
-#define DEPOSITO_H
+#pragma once
+#include "Transferencia.h"
+#include "Cuenta.h"
 
-#include "Transaccion.h"
-
-class Deposito: public Transaccion
+class Deposito : public Transferencia
 {
-	public:
-		void transferir();
+
+public:
+	void movimiento(Lista*, string);
+
 };
 
-#endif

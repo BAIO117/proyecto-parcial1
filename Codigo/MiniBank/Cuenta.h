@@ -4,16 +4,11 @@
 #include "Persona.h"
 
 
-
-enum TipoDeCuenta {
-	Ahorros = 1,
-	Corriente = 2
-};
-
 class Cuenta
 {
 
 public:
+	Cuenta();
 	void mostrarInformacion();
 	string getId();
 	float getSaldo();
@@ -32,7 +27,7 @@ public:
 protected:
 private:
 	std::string id;
-	float saldo = 0.0f;
+	float saldo;
 	Persona persona;
 	int tipoDeCuenta;
 	//bool tarjeta;

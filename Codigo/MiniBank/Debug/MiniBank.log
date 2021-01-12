@@ -1,2 +1,7 @@
 ﻿  Opciones.cpp
+  Persona.cpp
+C:\Users\hp\Documents\TERCER SEMESTRE\Estructura de Datos\trabajo primer parcial\ProyectoParcial1\Codigo\MiniBank\Persona.cpp(85,10): warning C4129: 'C': secuencia de escape de carácter no reconocida
+  Transferencia.cpp
+  Generando código...
+  LINK : no se encontró C:\Users\hp\Documents\TERCER SEMESTRE\Estructura de Datos\trabajo primer parcial\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   MiniBank.vcxproj -> C:\Users\hp\Documents\TERCER SEMESTRE\Estructura de Datos\trabajo primer parcial\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.exe

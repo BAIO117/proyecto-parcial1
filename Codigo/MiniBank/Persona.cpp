@@ -79,10 +79,10 @@ void Persona::setEdad(Fecha newEdad)
 	edad = newEdad;
 }
 void Persona::mostrarInformacion(){
-   cout<<"Nombre: "<<nombre<<endl;
-   cout<<"Apellido: "<<apellido<<endl;
-   cout<<"Cedula: "<<cedula<<endl;
-   cout<<"Correo electronico: "<<endl;
+   cout<<"\n\n\tNombre: "<<nombre<<endl;
+   cout<<"\tApellido: "<<apellido<<endl;
+   cout<<"\tCedula: "<<cedula<<endl;
+   cout<<"\Correo electronico: "<<correo<<endl;
    //cout<< edad.toString()<<endl;
    //edad.toString();
 }

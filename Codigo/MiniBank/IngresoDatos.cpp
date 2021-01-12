@@ -2,15 +2,17 @@
 #include<iostream>
 #include <conio.h>
 #include <sstream> 
+#include "Fuente.h"
 
 using namespace std;
 
 string IngresoDatos::IngresoTexto(string mensaje) {
 
+    Fuente txt;
     string text = "";
     char letter;
 
-    cout << "\n\t" << mensaje << "\t";
+    cout << "\n\t" << txt.formatoDeTexto(mensaje,39,49,true,false,true) << " ";
     letter = _getch();
     while (letter != 13) {
 
@@ -25,11 +27,12 @@ string IngresoDatos::IngresoTexto(string mensaje) {
 
 string IngresoDatos::IngresoNumero(string mensaje) {
 
+    Fuente txt;
     string num = "";
     char dig;
     //int numero;
 
-    cout << "\n\t" << mensaje << " ";
+    cout << "\n\t" << txt.formatoDeTexto(mensaje, 39, 49, true, false, true) << " ";
     dig = _getch();
     while (dig != 13) {
 
@@ -42,25 +45,66 @@ string IngresoDatos::IngresoNumero(string mensaje) {
     //istringstream(num) >> numero;
     return num;
 }
-/*
-int IngresoDatos::validarCedula(string dato){ 
+
+int IngresoDatos::validarCedula(string dato) { //Permite validar un número de cédula. Retorna 1 si la cédula es válida y 0 en caso contrario.
     int cedula[10];
     string aux;
-    for (int i=0;i<10;i++){
-        aux=dato[i];
-        cedula[i]=stoi(aux);
+    for (int i = 0; i < 10; i++) {
+        aux = dato[i];
+        cedula[i] = stoi(aux);
     }
     cout << cedula[2];
-    int verif[9],num,i;
-    if(cedula[2]<0 || cedula[2]>6){
-        //printf("Error en el tercer digito.\n");
+    int verif[10], num, i;
+    if (cedula[2] < 0 || cedula[2]>6) {
+       // printf("Error en el tercer digito.\n");
         return 0;
     }
-    if(cedula[0]<0 || cedula[0]>2){
+    if (cedula[0] < 0 || cedula[0]>2) {
         //printf("Error en el codigo de provincia.\n");
         return 0;
     }
-    if(cedula[0]==2 && (cedula[1]<1 || cedula[1]>4)){
+    if (cedula[0] == 2 && (cedula[1] < 1 || cedula[1]>4)) {
+        //printf("Error en el codigo de provincia.\n");
+        return 0;
     }
+    for (i = 0; i <= 8; i++) {
+        if (i % 2 == 0) {
+            verif[i] = cedula[i] * 2;
+            if (verif[i] >= 10) {
+                verif[i] = verif[i] - 9;
+
+            }
+        }
+        else {
+            verif[i] = cedula[i] * 1;
+            if (verif[i] >= 10) {
+                verif[i] = verif[i] - 9;
+
+            }
+        }
+    }
+
+    verif[9] = 90 - suma(verif);
+    num = verif[9] % 10;
+
+    if (cedula[9] == num) {
+        //printf("Digito verificador obtenido: %d.\n", num);
+        return 1;
+    }
+    else {
+        //printf("Digito verificador obtenido: %d. Error en el digito verificador.\n", num);
+        return 0;
+    }
+    return 0;
 }
-    */
+int IngresoDatos::suma(int verif2[9]) {
+    int i, suma = 0;
+    for (i = 0; i <= 8; i++) {
+        suma = suma + verif2[i];
+    }
+    return suma;
+}
+
+bool IngresoDatos::anioBisiesto(int anio) {
+    return (anio % 4 == 0 && anio % 100 != 0 || anio % 400 == 0) ? true : false;
+}
