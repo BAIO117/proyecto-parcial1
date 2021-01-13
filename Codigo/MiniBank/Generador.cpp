@@ -1,5 +1,5 @@
 #include "Generador.h"
-
+#include "Fuente.h"
 #include<iostream>
 
 using namespace std;
@@ -21,11 +21,15 @@ bool Generador::existeCorreo(string correo,Lista* cuentas) {
 
 string Generador::crearCorreo(string apellido, string nombre, Lista* cuentas) {
 
-
-	string correo = nombre[0] + apellido + this->dominio;
+	Fuente txt;
+	string correo; 
 	int cont = 1;
 	Nodo* aux = new Nodo();
-
+	
+	apellido = txt.aMinusculas(apellido);
+	nombre = txt.aMinusculas(nombre);
+	
+	correo = nombre[0] + apellido + this->dominio;
 	aux = cuentas->getNodo();
 
 	if (existeCorreo(correo,cuentas))

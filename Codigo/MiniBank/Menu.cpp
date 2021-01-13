@@ -15,13 +15,13 @@ int Menu::hacerMenu(string mensaje, string* opciones, int indice) {
         //CONSOLE_TEXTMODE_BUFFER;
         pantalla.gotoxy(20, 12);
         cout <<fnt.formatoDeTexto(mensaje,fnt.COLOR.ROJO,49,true,true) << endl;
-        pantalla.gotoxy(20, 13 + seleccion);
+        //pantalla.gotoxy(20, 14);
         //cout << (char)175;
 
         for (int i = 0; i < indice; i++) {
             if (seleccion == i + 1) {
                 
-                pantalla.gotoxy(21, 14 + i);
+                pantalla.gotoxy(20, 14 + i);
 
                 cout <<  fnt.formatoDeTexto(*(opciones+i),fnt.COLOR.GRIS_CLARO,fnt.RESALTADOR.AZUL,true) <<endl;
             }

@@ -4,12 +4,6 @@
 #include "Persona.h"
 
 
-
-enum TipoDeCuenta {
-	Ahorros = 1,
-	Corriente = 2
-};
-
 class Cuenta
 {
 

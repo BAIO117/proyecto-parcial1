@@ -7,10 +7,6 @@
 class Fecha
 {
 
-private:
-    int anio;
-    int mes;
-    int dia;
 public:
     Fecha();
     Fecha(int, int, int);
@@ -22,6 +18,10 @@ public:
     void setDia(int);
     void setMes(int);
     void setAnio(int);
+private:
+    int anio;
+    int mes;
+    int dia;
 
 };
 

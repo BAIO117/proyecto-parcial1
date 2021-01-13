@@ -32,7 +32,7 @@ string IngresoDatos::IngresoNumero(string mensaje) {
     char dig;
     //int numero;
 
-    cout << "\n\t" << txt.formatoDeTexto(mensaje, 39, 49, true, false, true) << " ";
+    cout << "\n\t" << mensaje;
     dig = _getch();
     while (dig != 13) {
 
@@ -46,7 +46,7 @@ string IngresoDatos::IngresoNumero(string mensaje) {
     return num;
 }
 
-int IngresoDatos::validarCedula(string dato) { //Permite validar un número de cédula. Retorna 1 si la cédula es válida y 0 en caso contrario.
+bool IngresoDatos::validarCedula(string dato) { //Permite validar un número de cédula. Retorna 1 si la cédula es válida y false en caso contrario.
     int cedula[10];
     string aux;
     for (int i = 0; i < 10; i++) {
@@ -55,18 +55,21 @@ int IngresoDatos::validarCedula(string dato) { //Permite validar un número de cé
     }
     cout << cedula[2];
     int verif[10], num, i;
+    //valida tercer digito
     if (cedula[2] < 0 || cedula[2]>6) {
-       // printf("Error en el tercer digito.\n");
-        return 0;
+       
+        return false;
     }
+    //valida codigo de provincia
     if (cedula[0] < 0 || cedula[0]>2) {
-        //printf("Error en el codigo de provincia.\n");
-        return 0;
+        
+        return false;
     }
     if (cedula[0] == 2 && (cedula[1] < 1 || cedula[1]>4)) {
-        //printf("Error en el codigo de provincia.\n");
-        return 0;
+        
+        return false;
     }
+
     for (i = 0; i <= 8; i++) {
         if (i % 2 == 0) {
             verif[i] = cedula[i] * 2;
@@ -87,15 +90,16 @@ int IngresoDatos::validarCedula(string dato) { //Permite validar un número de cé
     verif[9] = 90 - suma(verif);
     num = verif[9] % 10;
 
+    //Digito verificador
     if (cedula[9] == num) {
-        //printf("Digito verificador obtenido: %d.\n", num);
-        return 1;
+        
+        return true;
     }
     else {
-        //printf("Digito verificador obtenido: %d. Error en el digito verificador.\n", num);
-        return 0;
+        
+        return false;
     }
-    return 0;
+    return false;
 }
 int IngresoDatos::suma(int verif2[9]) {
     int i, suma = 0;
