@@ -3,10 +3,11 @@
 #include "Generador.h"
 #include "Deposito.h"
 #include "Retiro.h"
+#include "CalculoEdad.h"
 #include <iostream>
 
 #define DEPOSITO_INICIAL_CORRIENTE  50.0f  
-#define DEPOSITO_INICIAL_AHORROS  0.0f  
+#define DEPOSITO_INICIAL_AHORROS  5.0f  
 #define DEPOSITO_MINIMO 5.0f
 
 using namespace std;
@@ -17,19 +18,20 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	system("cls");
 
 
-	Fecha fechaNacimiento;
+	Fecha fechaNacimiento,objFecha;
 	Cuenta cuenta;
 	IngresoDatos ingreso;
-
+	CalculoEdad edad;
 	Persona persona;
 	Generador generador;
 	string dato = "";
 	int tipoCuenta = 0;
 	string dia, mes, anio;
 	int diaEspecial = 28;
+	float saldo;
 	bool bandera = false;
 	int dias_meses[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
-
+	objFecha.generar_fecha();
 
 	system("cls");
 	do {
@@ -53,12 +55,16 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 
 	} while (dato == "" || dato.size() != 10 || !ingreso.validarCedula(dato));
 
-	do
-	{
-		pantalla.gotoxy(4, 7);
-		anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):      \b\b\b\b\b\b");
+	do{
+		do
+		{
+			pantalla.gotoxy(4, 7);
+			anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):      \b\b\b\b\b\b");
+			
+			
+		} while (anio.size() != 4);
+	} while (stoi(anio) <= (objFecha.get_anio() - 100) || stoi(anio) >= (objFecha.get_anio() - 18));
 
-	} while (anio.size() != 4);
 
 	if (ingreso.anioBisiesto(stoi(anio))) {
 		diaEspecial = 29;
@@ -90,7 +96,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	fechaNacimiento.setDia(stoi(dia)); // = new Fecha(stoi(dia), stoi(mes), stoi(anio));
 	fechaNacimiento.setMes(stoi(mes));
 	fechaNacimiento.setAnio(stoi(anio));
-	persona.setEdad(fechaNacimiento);
+	persona.setEdad(edad.calc_edad(fechaNacimiento));
 
 	dato = generador.crearCorreo(persona.getApellido(), persona.getNombre(), cuentas);
 	cout << "\n\t Correo: " << dato;
@@ -133,6 +139,15 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	dato = generador.generarNumeroDeCuenta(persona.getCedula(), cuenta.getTipoDeCuenta());
 	cuenta.setId(dato);
 	cout << "\n\n\tNumero de cuenta: "<<dato<< endl;
+	do
+	{
+		pantalla.gotoxy(4, 22);
+		dato = ingreso.IngresoNumero("Ingrese su deposito inicial:          \b\b\b\b\b\b\b\b");
+		saldo = stof(dato);
+		cuenta.setSaldo(saldo);
+
+	} while (dato == "" || dato.size() != 2 || saldo< DEPOSITO_INICIAL_AHORROS);
+
 	cuenta.setPersona(persona);
 
 
@@ -179,6 +194,7 @@ void Opciones::realizarRetiro(Lista* cuentas) {
 
 	do
 	{
+		system("cls");
 		pantalla.gotoxy(2, 3);
 		dato = ingreso.IngresoNumero("Ingrese numero de cuenta:                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		retiro.movimiento(cuentas, dato);

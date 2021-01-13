@@ -1,2 +1,5 @@
-﻿  Opciones.cpp
+﻿  CalculoEdad.cpp
+  Opciones.cpp
+  Generando código...
+D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\CalculoEdad.cpp(26): warning C4715: 'CalculoEdad::calc_edad': no todas las rutas de acceso de control devuelven un valor
   MiniBank.vcxproj -> D:\User\UNIVERSIDAD\Estructuras de datos\ProyectoParcial1\Codigo\MiniBank\Debug\MiniBank.exe
