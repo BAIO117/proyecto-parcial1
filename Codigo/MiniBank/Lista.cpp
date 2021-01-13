@@ -31,15 +31,7 @@ void Lista::toString() {
     {
         while (aux != NULL)
         {
-            cout << "\t----------------------------------------------------" << endl;
-            cout << "\tPropietario: " << aux->getCuenta().getPersona().getNombre() <<" "<< aux->getCuenta().getPersona().getApellido() << endl;
-            cout << "\tCedula: " << aux->getCuenta().getPersona().getCedula() << endl;
-            cout << "\tNumero de cuenta: " << aux->getCuenta().getId();
-            cout << "\n\tSaldo disponible: " << aux->getCuenta().getSaldo() << endl;
-            cout << "\tTipo de cuenta: " << ((aux->getCuenta().getTipoDeCuenta()==1)? "Ahorros":"Corriente") << endl;
-            cout << "\tCorreo del propietario: " << aux->getCuenta().getPersona().getCorreo() << endl;
-            cout << "\t----------------------------------------------------" << endl;
-           
+            aux->cuenta.mostrarInformacion();
             aux = aux->getSiguiente();
         }
     }
@@ -155,46 +147,7 @@ void Lista::insertarEntre(Cuenta dato, int n)
     cout << "EXITO";
 }
 
-bool Lista::buscar(string id) {
-    Nodo* aux = new Nodo();
-    Nodo* aux1 = new Nodo();
 
-    aux = this->nodo;
-
-    bool respuesta = false;
-    while (aux != NULL)
-    {
-        if (aux->getCuenta().getId() == id) {
-            respuesta = true;
-
-        }
-
-        aux1 = aux;
-        aux = aux->getSiguiente();
-    }
-
-    return respuesta;
-}
-
-Cuenta Lista::buscarYTraer(string id) {
-    Nodo* aux = new Nodo();
-    Cuenta auxCuenta;
-    aux = this->nodo;
-
-    while (aux != NULL)
-    {
-
-        if (id == aux->getCuenta().getId()) {
-            auxCuenta = aux->getCuenta();
-            //auxCuenta.mostrarInformacion();
-            return auxCuenta;
-        }
-    
-        aux = aux->getSiguiente();
-    }
-
-    return auxCuenta;
-}
 
 void Lista::modificarNodo(string id,float saldo) {
     Nodo* aux = new Nodo();

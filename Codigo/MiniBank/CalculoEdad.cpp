@@ -1,6 +1,5 @@
 #include "CalculoEdad.h"
 
-
 CalculoEdad::CalculoEdad() {
 	this->edad_anios = 0;
 	this->edad_meses = 0;
@@ -20,9 +19,27 @@ Fecha CalculoEdad::calc_edad(Fecha obj_fn) {
 			edad_anios = obj_fa.get_anio() - obj_fn.get_anio() - 1;
 		}
 		edad_dias = obj_fa.get_dia() - obj_fn.get_dia() + 1;
+<<<<<<< HEAD
 		Fecha obj_edad(edad_dias, edad_meses, edad_anios);
 		return obj_edad;
 	}
+=======
+		if (edad_dias < 0) {
+			edad_dias = edad_dias * (-1);
+		}
+		Fecha obj_edad(edad_dias, edad_meses, edad_anios);
+		return obj_edad;
+	}
+}
+
+bool CalculoEdad::validar_anio(int anio) {
+	Fecha obj_fa;
+	obj_fa.generar_fecha();
+	if ((obj_fa.get_anio() - anio) >=18 && anio > 1920) {
+		return true;
+	}
+	return false;
+>>>>>>> dae9745652865a73f27ef22c573a08209a58cc64
 }
 
 int CalculoEdad::get_edad_anios() {
@@ -41,5 +58,10 @@ std::string CalculoEdad::get_edad() {
 	std::string e_anio(std::to_string(edad_anios));
 	std::string e_mes(std::to_string(edad_meses));
 	std::string e_dia(std::to_string(edad_dias));
+<<<<<<< HEAD
 	return "anios: " + e_anio + " meses: " + e_mes + " dias: " + e_dia + "\n";	
 }
+=======
+	return "anios: " + e_anio + " meses: " + e_mes + " dias: " + e_dia + "\n";
+}
+>>>>>>> dae9745652865a73f27ef22c573a08209a58cc64

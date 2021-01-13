@@ -23,6 +23,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	IngresoDatos ingreso;
 	CalculoEdad edad;
 	Persona persona;
+	CalculoEdad edad;
 	Generador generador;
 	string dato = "";
 	int tipoCuenta = 0;
@@ -55,6 +56,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 
 	} while (dato == "" || dato.size() != 10 || !ingreso.validarCedula(dato));
 
+<<<<<<< HEAD
 	do{
 		do
 		{
@@ -65,6 +67,15 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 		} while (anio.size() != 4);
 	} while (stoi(anio) <= (objFecha.get_anio() - 100) || stoi(anio) >= (objFecha.get_anio() - 18));
 
+=======
+	do
+	{
+		do {
+			pantalla.gotoxy(4, 7);
+			anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):      \b\b\b\b\b\b");
+		} while (!edad.validar_anio(stoi(anio)));
+	} while (anio.size() != 4);
+>>>>>>> dae9745652865a73f27ef22c573a08209a58cc64
 
 	if (ingreso.anioBisiesto(stoi(anio))) {
 		diaEspecial = 29;
@@ -208,15 +219,15 @@ void Opciones::realizarRetiro(Lista* cuentas) {
 }
 
 void Opciones::buscarCuenta(Lista* cuentas) {
-
-	system("cls");
 	string cuenta;
 	Cuenta cuenta1;
 
+	system("cls");
 
 	cout << "Ingrese su numero de cuenta" << endl;
 	cin >> cuenta;
-	cuenta1 = cuentas->buscarYTraer(cuenta);
+	cuenta1 = buscarYTraer(cuentas,cuenta);
+
 
 	if (cuenta1.getId() != ""){
 		cuenta1.mostrarInformacion();
@@ -238,4 +249,45 @@ void Opciones::mostarCuentas(Lista* cuentas) {
 	cout << "\n\t";
 	system("pause");
 
+}
+bool Opciones::buscar(Lista* cuentas,string id) {
+	
+	Nodo* aux = new Nodo();
+	Nodo* aux1 = new Nodo();
+
+	aux = cuentas->getNodo();
+
+	bool respuesta = false;
+	while (aux != NULL)
+	{
+		if (aux->getCuenta().getId() == id) {
+			respuesta = true;
+
+		}
+
+		aux1 = aux;
+		aux = aux->getSiguiente();
+	}
+
+	return respuesta;
+}
+
+Cuenta Opciones::buscarYTraer(Lista* cuentas,string id) {
+	Nodo* aux = new Nodo();
+	Cuenta auxCuenta;
+	aux = cuentas->getNodo();
+
+	while (aux != NULL)
+	{
+
+		if (id == aux->getCuenta().getId()) {
+			auxCuenta = aux->getCuenta();
+			//auxCuenta.mostrarInformacion();
+			return auxCuenta;
+		}
+
+		aux = aux->getSiguiente();
+	}
+
+	return auxCuenta;
 }
