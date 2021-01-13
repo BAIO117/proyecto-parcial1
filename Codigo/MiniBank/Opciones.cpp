@@ -53,7 +53,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 		dato = ingreso.IngresoNumero("Ingrese numero de cedula:               \b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		persona.setCedula(dato);
 
-	} while (dato == "" || dato.size() != 10 /*|| !ingreso.validarCedula(dato)*/);
+	} while (dato == "" || dato.size() != 10 || !ingreso.validarCedula(dato));
 
 	do
 	{
