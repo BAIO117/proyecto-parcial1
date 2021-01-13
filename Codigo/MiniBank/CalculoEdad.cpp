@@ -19,6 +19,9 @@ Fecha CalculoEdad::calc_edad(Fecha obj_fn) {
 			edad_anios = obj_fa.get_anio() - obj_fn.get_anio() - 1;
 		}
 		edad_dias = obj_fa.get_dia() - obj_fn.get_dia() + 1;
+		if (edad_dias < 0) {
+			edad_dias = edad_dias * (-1);
+		}
 		Fecha obj_edad(edad_dias, edad_meses, edad_anios);
 		return obj_edad;
 	}
