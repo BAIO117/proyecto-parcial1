@@ -14,10 +14,10 @@ public:
     void borrarInicio();
     void borrarFinal();
     void borrarEntre(int);
-    bool buscar(string);
+   
     //bool buscarYTraer(string);
     string rCorreoL(Persona);
-    Cuenta buscarYTraer(string );
+    
     string rCorreoL(Cuenta);
     Nodo* getNodo();
     void setNodo(Nodo*);

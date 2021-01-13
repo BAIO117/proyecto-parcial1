@@ -1,2 +1,6 @@
 PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.28.29333:TargetPlatformVersion=10.0.18362.0:
+<<<<<<< HEAD
 Debug|Win32|C:\Users\ADRIAN-PC\Documents\3 SEMESTRE\ESTRUCUTURA DE DATOS\PROYECTO FINAL\ProyectoParcial1\Codigo\MiniBank\|
+=======
+Debug|Win32|C:\Users\hp\Documents\TERCER SEMESTRE\Estructura de Datos\trabajo primer parcial\ProyectoParcial1\Codigo\MiniBank\|
+>>>>>>> 2baf8bf0971d7ac3eb3eb978c4e2110c6e683055

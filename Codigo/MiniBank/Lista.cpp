@@ -154,46 +154,7 @@ void Lista::insertarEntre(Cuenta dato, int n)
     cout << "EXITO";
 }
 
-bool Lista::buscar(string id) {
-    Nodo* aux = new Nodo();
-    Nodo* aux1 = new Nodo();
 
-    aux = this->nodo;
-
-    bool respuesta = false;
-    while (aux != NULL)
-    {
-        if (aux->getCuenta().getId() == id) {
-            respuesta = true;
-
-        }
-
-        aux1 = aux;
-        aux = aux->getSiguiente();
-    }
-
-    return respuesta;
-}
-
-Cuenta Lista::buscarYTraer(string id) {
-    Nodo* aux = new Nodo();
-    Cuenta auxCuenta;
-    aux = this->nodo;
-
-    while (aux != NULL)
-    {
-
-        if (id == aux->getCuenta().getId()) {
-            auxCuenta = aux->getCuenta();
-            //auxCuenta.mostrarInformacion();
-            return auxCuenta;
-        }
-    
-        aux = aux->getSiguiente();
-    }
-
-    return auxCuenta;
-}
 
 void Lista::modificarNodo(string id,float saldo) {
     Nodo* aux = new Nodo();

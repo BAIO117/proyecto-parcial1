@@ -1,4 +1,5 @@
 #include "Retiro.h"
+#include "Opciones.h"
 #include <iostream>
 #include "IngresoDatos.h"
 
@@ -11,12 +12,19 @@ void Retiro::movimiento(Lista* cuentas, string idCuenta) {
     IngresoDatos ingreso;
 
     Cuenta aux;
+<<<<<<< HEAD
     if (cuentas->buscar(idCuenta)) {
         // cout << "\n\t Ingrese el monto que se desea retirar: ";
          //cin >> monto;
         montoCadena = ingreso.IngresoNumero("Ingrese el monto que se desea retirar");
         monto = stof(montoCadena);
 
+=======
+    Opciones opc;
+    if (opc.buscar(cuentas,idCuenta)) {
+        cout << "\n\t Ingrese el monto que se desea retirar: ";
+        cin >> monto;
+>>>>>>> 2baf8bf0971d7ac3eb3eb978c4e2110c6e683055
         while (monto < 0)
         {
             montoCadena = ingreso.IngresoNumero("Ingrese nuevamente el monto que se desea retirar");
@@ -24,6 +32,7 @@ void Retiro::movimiento(Lista* cuentas, string idCuenta) {
         }
 
 
+<<<<<<< HEAD
         aux = cuentas->buscarYTraer(idCuenta);
         /*if(monto > aux.getSaldo()) {
             cout << "\n\tSaldo insuficiente!" << endl;
@@ -40,6 +49,9 @@ void Retiro::movimiento(Lista* cuentas, string idCuenta) {
             monto = stof(montoCadena);
 
         }
+=======
+        aux = opc.buscarYTraer(cuentas,idCuenta);
+>>>>>>> 2baf8bf0971d7ac3eb3eb978c4e2110c6e683055
         cuentas->modificarNodo(idCuenta, aux.getSaldo() - monto);
         cout << "\n\t Transaccion exitosa!";
 
