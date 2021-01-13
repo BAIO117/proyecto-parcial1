@@ -30,15 +30,7 @@ void Lista::toString() {
     {
         while (aux != NULL)
         {
-            cout << "\t----------------------------------------------------" << endl;
-            cout << "\tPropietario: " << aux->getCuenta().getPersona().getNombre() <<" "<< aux->getCuenta().getPersona().getApellido() << endl;
-            cout << "\tCedula: " << aux->getCuenta().getPersona().getCedula() << endl;
-            cout << "\tNumero de cuenta: " << aux->getCuenta().getId();
-            cout << "\n\tSaldo disponible: " << aux->getCuenta().getSaldo() << endl;
-            cout << "\tTipo de cuenta: " << ((aux->getCuenta().getTipoDeCuenta()==1)? "Ahorros":"Corriente") << endl;
-            cout << "\tCorreo del propietario: " << aux->getCuenta().getPersona().getCorreo() << endl;
-            cout << "\t----------------------------------------------------" << endl;
-           
+            aux->cuenta.mostrarInformacion();
             aux = aux->getSiguiente();
         }
     }
