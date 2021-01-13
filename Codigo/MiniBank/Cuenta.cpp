@@ -59,6 +59,7 @@ void Cuenta::mostrarInformacion(void)
 	cout << "\t----------------------------------------------------" << endl;
 	cout << "\tPropietario: " << this->persona.getNombre() << " " << this->persona.getApellido() << endl;
 	cout << "\tCedula: " << this->persona.getCedula() << endl;
+	cout << "\tEdad: " << this->persona.getEdad().get_anio() << " anios" << endl;
 	cout << "\tNumero de cuenta: " << this->id<<endl;
 	cout << "    Saldo disponible: " << this->saldo << endl;
 	cout << "\tTipo de cuenta: " << ((this->tipoDeCuenta == 1)? "Ahorros":"Corriente")  << endl;

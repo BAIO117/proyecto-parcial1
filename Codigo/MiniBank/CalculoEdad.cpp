@@ -1,24 +1,36 @@
 #include "CalculoEdad.h"
 
-
 CalculoEdad::CalculoEdad() {
 	this->edad_anios = 0;
 	this->edad_meses = 0;
 	this->edad_dias = 0;
 }
 
-void CalculoEdad::calc_edad(Fecha obj_fn) {
+Fecha CalculoEdad::calc_edad(Fecha obj_fn) {
 	Fecha obj_fa;
 	obj_fa.generar_fecha();
-	if (obj_fa.get_mes() >= obj_fn.get_mes()) {
-		edad_meses = obj_fa.get_mes() - obj_fn.get_mes();
-		edad_anios = obj_fa.get_anio() - obj_fn.get_anio();
+	if (obj_fa.get_anio() > obj_fn.get_anio()) {
+		if (obj_fa.get_mes() >= obj_fn.get_mes()) {
+			edad_meses = obj_fa.get_mes() - obj_fn.get_mes();
+			edad_anios = obj_fa.get_anio() - obj_fn.get_anio();
+		}
+		else {
+			edad_meses = obj_fa.get_mes() - obj_fn.get_mes() + 12;
+			edad_anios = obj_fa.get_anio() - obj_fn.get_anio() - 1;
+		}
+		edad_dias = obj_fa.get_dia() - obj_fn.get_dia() + 1;
+		Fecha obj_edad(edad_dias, edad_meses, edad_anios);
+		return obj_edad;
 	}
-	else {
-		edad_meses = obj_fa.get_mes() - obj_fn.get_mes() + 12;
-		edad_anios = obj_fa.get_anio() - obj_fn.get_anio() - 1;
+}
+
+bool CalculoEdad::validar_anio(int anio) {
+	Fecha obj_fa;
+	obj_fa.generar_fecha();
+	if ((obj_fa.get_anio() - anio) >=18 && anio > 1920) {
+		return true;
 	}
-	edad_dias = obj_fa.get_dia() - obj_fn.get_dia() + 1;
+	return false;
 }
 
 int CalculoEdad::get_edad_anios() {

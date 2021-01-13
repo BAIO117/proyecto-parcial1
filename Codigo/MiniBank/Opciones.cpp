@@ -3,6 +3,7 @@
 #include "Generador.h"
 #include "Deposito.h"
 #include "Retiro.h"
+#include "CalculoEdad.h"
 #include <iostream>
 
 #define DEPOSITO_INICIAL_CORRIENTE  50.0f  
@@ -22,6 +23,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	IngresoDatos ingreso;
 
 	Persona persona;
+	CalculoEdad edad;
 	Generador generador;
 	string dato = "";
 	int tipoCuenta = 0;
@@ -51,13 +53,14 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 		dato = ingreso.IngresoNumero("Ingrese numero de cedula:               \b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		persona.setCedula(dato);
 
-	} while (dato == "" || dato.size() != 10 || !ingreso.validarCedula(dato));
+	} while (dato == "" || dato.size() != 10 /*|| !ingreso.validarCedula(dato)*/);
 
 	do
 	{
-		pantalla.gotoxy(4, 7);
-		anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):      \b\b\b\b\b\b");
-
+		do {
+			pantalla.gotoxy(4, 7);
+			anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):      \b\b\b\b\b\b");
+		} while (!edad.validar_anio(stoi(anio)));
 	} while (anio.size() != 4);
 
 	if (ingreso.anioBisiesto(stoi(anio))) {
@@ -90,7 +93,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	fechaNacimiento.setDia(stoi(dia)); // = new Fecha(stoi(dia), stoi(mes), stoi(anio));
 	fechaNacimiento.setMes(stoi(mes));
 	fechaNacimiento.setAnio(stoi(anio));
-	persona.setEdad(fechaNacimiento);
+	persona.setEdad(edad.calc_edad(fechaNacimiento));
 
 	dato = generador.crearCorreo(persona.getApellido(), persona.getNombre(), cuentas);
 	cout << "\n\t Correo: " << dato;
