@@ -21,3 +21,8 @@ string Fuente::formatoDeTexto(string texto, int color, int resaltado,
     return cadena;
 
 }
+
+string Fuente::aMinusculas(string cadena) {
+    for (int i = 0; i < cadena.length(); i++) cadena[i] = tolower(cadena[i]);
+    return cadena;
+}

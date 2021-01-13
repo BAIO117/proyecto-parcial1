@@ -48,15 +48,15 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	do
 	{
 		pantalla.gotoxy(4, 6);
-		dato = ingreso.IngresoNumero("Ingrese numero de cedula:                 \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+		dato = ingreso.IngresoNumero("Ingrese numero de cedula:               \b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		persona.setCedula(dato);
 
-	} while (dato == "" || dato.size() != 10 || ingreso.validarCedula(dato) ==0);
+	} while (dato == "" || dato.size() != 10 || !ingreso.validarCedula(dato));
 
 	do
 	{
 		pantalla.gotoxy(4, 7);
-		anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):     \b\b\b\b\b");
+		anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):      \b\b\b\b\b\b");
 
 	} while (anio.size() != 4);
 
