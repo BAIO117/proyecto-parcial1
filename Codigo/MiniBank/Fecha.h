@@ -18,6 +18,7 @@ public:
     void setDia(int);
     void setMes(int);
     void setAnio(int);
+
 private:
     int anio;
     int mes;

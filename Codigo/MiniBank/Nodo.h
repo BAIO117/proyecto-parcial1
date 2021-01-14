@@ -15,8 +15,6 @@ public:
     Nodo* getSiguiente();
     Nodo* getAnterior();
     friend class Lista;
-    string toString();
-    virtual ~Nodo();
 private:
     Cuenta cuenta;
     Nodo* siguiente;

@@ -1,7 +1,5 @@
 #include "Nodo.h"
 
-
-
 using namespace std;
 
 
@@ -40,5 +38,3 @@ Nodo* Nodo::getAnterior()
     return this->anterior;
 }
 
-
-Nodo::~Nodo() {}

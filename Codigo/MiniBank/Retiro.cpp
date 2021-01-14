@@ -1,4 +1,5 @@
 #include "Retiro.h"
+#include"IngresoDatos.h"
 #include "Opciones.h"
 #include <iostream>
 #include "IngresoDatos.h"
@@ -6,54 +7,36 @@
 using namespace std;
 
 void Retiro::movimiento(Lista* cuentas, string idCuenta) {
-    bool respuesta = false;
+
     float monto;
-    string montoCadena = "";
+    string dato = "";
     IngresoDatos ingreso;
-
-    Cuenta aux;
-   // if (cuentas->buscar(idCuenta)) {
-        // cout << "\n\t Ingrese el monto que se desea retirar: ";
-         //cin >> monto;
-        montoCadena = ingreso.IngresoNumero("Ingrese el monto que se desea retirar");
-        monto = stof(montoCadena);
-
     Opciones opc;
-    if (opc.buscar(cuentas,idCuenta)) {
-        cout << "\n\t Ingrese el monto que se desea retirar: ";
-        cin >> monto;
-        while (monto < 0)
-        {
-            montoCadena = ingreso.IngresoNumero("Ingrese nuevamente el monto que se desea retirar");
-            monto = stof(montoCadena);
+    Cuenta aux;
+ 
+
+    if (opc.buscar(cuentas,idCuenta))
+    {
+   
+        dato = ingreso.IngresoNumero("Ingrese el monto que se desea retirar: ");
+        monto = stof(dato);
+        aux = opc.buscarYTraer(cuentas, idCuenta);
+        if (monto > aux.getSaldo()) {
+            cout << "\n\tSaldo insuficiente...\n\t";
         }
-
-
-        //aux = cuentas->buscarYTraer(idCuenta);
-        /*if(monto > aux.getSaldo()) {
-            cout << "\n\tSaldo insuficiente!" << endl;
-            montoCadena = ingreso.IngresoNumero("Ingrese nuevamente el monto que se desea retirar");
-            monto = stof(montoCadena);
+        else {
+            aux = opc.buscarYTraer(cuentas, idCuenta);
+            cuentas->modificarNodo(idCuenta, aux.getSaldo() - monto);
+            cout << "\n\tTransaccion exitosa!";
         }
-
-        cuentas->modificarNodo(idCuenta, aux.getSaldo() - monto);
-        cout << "\n\t Transaccion exitosa!";*/
-
-        while (monto > aux.getSaldo()) {
-            cout << "\n\tSaldo insuficiente!" << endl;
-            montoCadena = ingreso.IngresoNumero("Ingrese nuevamente el monto que se desea retirar");
-            monto = stof(montoCadena);
-
-        }
-        aux = opc.buscarYTraer(cuentas,idCuenta);
-        cuentas->modificarNodo(idCuenta, aux.getSaldo() - monto);
-        cout << "\n\t Transaccion exitosa!";
-
-        //respuesta = true;
+        
     }
     else {
-        cout << "\n\t Por favor ingresar un numero de cuenta valido" << endl << "\t";
+
+        cout << "\n\tNo existe el numero de cuenta....\n\t ";
         system("pause");
     }
-    //return aux;
+
+
+
 }

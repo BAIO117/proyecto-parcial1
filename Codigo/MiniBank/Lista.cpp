@@ -3,6 +3,7 @@
 #include "Cuenta.h"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
  
@@ -73,77 +74,6 @@ void Lista::insertarInicio(Cuenta dato)
         this->nodo = aux;
     }
 
-}
-
-void Lista::insertarFinal(Cuenta dato)
-{
-
-    if (this->listaVacia())
-    {
-        this->nodo = new Nodo(dato, NULL, NULL);
-    }
-    else
-    {
-        Nodo* aux_1 = new Nodo();
-        Nodo* aux_2;
-        Nodo* aux = this->nodo;
-
-        //aux = this->nodo;
-
-        while (aux != NULL)
-        {
-            aux_1 = aux;
-            aux = aux->getSiguiente();
-        }
-
-        aux_2 = new Nodo(dato, aux_1->getSiguiente(), aux_1->getAnterior());
-    }
-    cout << "EXITO";
-}
-
-void Lista::insertarEntre(Cuenta dato, int n)
-{
-    if (this->listaVacia())
-    {
-        this->nodo = new Nodo(dato, NULL, NULL);
-      
-    }
-    else if (n <= 1 || this->tamanio() <= n)
-    {
-        if (n == 1)
-        {
-            this->insertarInicio(dato);
-        }
-        else if (n == this->tamanio())
-        {
-            this->insertarFinal(dato);
-        }
-        else
-        {
-            cout << "Fuera de rango" << endl;
-        }
-        system("pause");
-    }
-    else
-    {
-        Nodo* aux = this->nodo;
-        Nodo* aux1 = NULL;
-
-        int indice = 0;
-        while (aux != NULL && indice != n)
-        {
-            aux1 = aux;
-            aux = aux->getSiguiente();
-            indice++;
-        }
-        Nodo* anteriorNodo = aux1->getAnterior();
-        Nodo* aux2 = new Nodo(dato, aux1, anteriorNodo);
-
-        anteriorNodo->setSiguiente(aux2);
-        aux1->setAnterior(aux2);
-
-    }
-    cout << "EXITO";
 }
 
 
