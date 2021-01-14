@@ -1,67 +1,51 @@
+#pragma warning(disable : 4996)
 #include "CalculoEdad.h"
+#include <ctime>
+
+using namespace std;
 
 CalculoEdad::CalculoEdad() {
-	this->edad_anios = 0;
-	this->edad_meses = 0;
-	this->edad_dias = 0;
+	
+	time_t today = time(NULL);
+	struct tm now = *localtime(&today);
+
+	this->actual.setAnio(now.tm_year+1900);
+	this->actual.setMes(now.tm_mon + 1);
+	this->actual.setDia(now.tm_mday);
 }
 
-Fecha CalculoEdad::calc_edad(Fecha obj_fn) {
-	Fecha obj_fa;
-	obj_fa.generar_fecha();
-	if (obj_fa.get_anio() > obj_fn.get_anio()) {
-		if (obj_fa.get_mes() >= obj_fn.get_mes()) {
-			edad_meses = obj_fa.get_mes() - obj_fn.get_mes();
-			edad_anios = obj_fa.get_anio() - obj_fn.get_anio();
-		}
-		else {
-			edad_meses = obj_fa.get_mes() - obj_fn.get_mes() + 12;
-			edad_anios = obj_fa.get_anio() - obj_fn.get_anio() - 1;
-		}
-		edad_dias = obj_fa.get_dia() - obj_fn.get_dia() + 1;
-<<<<<<< HEAD
-		Fecha obj_edad(edad_dias, edad_meses, edad_anios);
-		return obj_edad;
-	}
-=======
-		if (edad_dias < 0) {
-			edad_dias = edad_dias * (-1);
-		}
-		Fecha obj_edad(edad_dias, edad_meses, edad_anios);
-		return obj_edad;
-	}
+void CalculoEdad::setNacimiento(Fecha nacimiento) {
+	this->nacimiento = nacimiento;
 }
 
-bool CalculoEdad::validar_anio(int anio) {
-	Fecha obj_fa;
-	obj_fa.generar_fecha();
-	if ((obj_fa.get_anio() - anio) >=18 && anio > 1920) {
-		return true;
-	}
-	return false;
->>>>>>> dae9745652865a73f27ef22c573a08209a58cc64
-}
+Fecha CalculoEdad::DiferenciaEntreFechas() {
 
-int CalculoEdad::get_edad_anios() {
-	return edad_anios;
-}
+	Fecha aux;
 
-int CalculoEdad::get_edad_meses() {
-	return edad_meses;
-}
+    if (this->actual.get_dia() < this->nacimiento.get_dia() ) {
 
-int CalculoEdad::get_edad_dias() {
-	return edad_dias;
-}
+        this->actual.setDia(actual.get_dia() + 30 );
+        this->actual.setMes(actual.get_mes()-1);
+        aux.setDia(actual.get_dia() - nacimiento.get_dia());
 
-std::string CalculoEdad::get_edad() {
-	std::string e_anio(std::to_string(edad_anios));
-	std::string e_mes(std::to_string(edad_meses));
-	std::string e_dia(std::to_string(edad_dias));
-<<<<<<< HEAD
-	return "anios: " + e_anio + " meses: " + e_mes + " dias: " + e_dia + "\n";	
+    }
+    else
+    {
+        aux.setDia(actual.get_dia() - nacimiento.get_dia());
+    }
+
+    if (this->actual.get_mes() < this->nacimiento.get_mes())
+    {
+        this->actual.setMes(actual.get_mes() + 12);
+        this->actual.setAnio(actual.get_anio() - 1);
+        aux.setMes(actual.get_mes() - nacimiento.get_mes());
+    }
+    else {
+        aux.setMes(actual.get_mes() - nacimiento.get_mes());
+    }
+
+    aux.setAnio(actual.get_anio() - nacimiento.get_anio());
+
+    return aux;
+
 }
-=======
-	return "anios: " + e_anio + " meses: " + e_mes + " dias: " + e_dia + "\n";
-}
->>>>>>> dae9745652865a73f27ef22c573a08209a58cc64

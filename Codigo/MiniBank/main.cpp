@@ -13,8 +13,9 @@ int main()
 {
     Lista* cuentas = new Lista();
     Cuenta cuenta;
-    Menu menu; Opciones opc;
-    int opcion,retiDepo;
+    Menu menu;
+    Opciones opc;
+    int opcion,transaccion;
     string opcMenu[] = {"Crear Cuenta","Movimientos","Mostrar","Salir"};
     string SubMenuTransacciones[] = {"Retiro","Deposito","Atras"};
     string SubMenuMostrar[] = { "Mostrar Cuentas","Buscar una cuenta","Atras" };
@@ -23,17 +24,19 @@ int main()
     {   
         
         opcion = menu.hacerMenu("Mini-Bank", opcMenu, 4);
-        //cout << endl << opcion << endl;
+
         switch (opcion)
         {
         case 1:
-            //opc.IngresarnuevaCuenta(cuentas);
+
             cuenta = opc.IngresarnuevaCuenta(cuentas);
             cuentas->insertarInicio(cuenta);
             break;
+
         case 2:
-                retiDepo = menu.hacerMenu("Realizar Trasaccion", SubMenuTransacciones, 3);
-                switch (retiDepo)
+
+                transaccion = menu.hacerMenu("Realizar Trasaccion", SubMenuTransacciones, 3);
+                switch (transaccion)
                 {
                 case 1:
                     opc.realizarRetiro(cuentas);
@@ -46,8 +49,9 @@ int main()
                 }
             break;
         case 3:
-            retiDepo = menu.hacerMenu("Mostrar Cuentas", SubMenuMostrar, 3);
-            switch (retiDepo)
+
+            transaccion = menu.hacerMenu("Mostrar Cuentas", SubMenuMostrar, 3);
+            switch (transaccion)
             {
             case 1:
                 system("cls");
@@ -62,6 +66,7 @@ int main()
             }
 
             break;
+
         default:
             system("cls");
             break;

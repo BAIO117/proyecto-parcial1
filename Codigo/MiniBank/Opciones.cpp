@@ -6,8 +6,7 @@
 #include "CalculoEdad.h"
 #include <iostream>
 
-#define DEPOSITO_INICIAL_CORRIENTE  50.0f  
-#define DEPOSITO_INICIAL_AHORROS  5.0f  
+#define DEPOSITO_INICIAL  5.0f  
 #define DEPOSITO_MINIMO 5.0f
 
 using namespace std;
@@ -16,15 +15,13 @@ using namespace std;
 Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 
 	system("cls");
-
-
 	Fecha fechaNacimiento,objFecha;
 	Cuenta cuenta;
 	IngresoDatos ingreso;
 	CalculoEdad edad;
 	Persona persona;
-	CalculoEdad edad;
 	Generador generador;
+
 	string dato = "";
 	int tipoCuenta = 0;
 	string dia, mes, anio;
@@ -51,12 +48,20 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	do
 	{
 		pantalla.gotoxy(4, 6);
-		dato = ingreso.IngresoNumero("Ingrese numero de cedula:               \b\b\b\b\b\b\b\b\b\b\b\b\b\b");
-		persona.setCedula(dato);
+		try
+		{
+			dato = ingreso.IngresoNumero("Ingrese numero de cedula:               \b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+			persona.setCedula(dato);
+		}
+		catch (const std::exception&)
+		{
+			dato = "";
+		}
+		
 
 	} while (dato == "" || dato.size() != 10 || !ingreso.validarCedula(dato));
 
-<<<<<<< HEAD
+
 	do{
 		do
 		{
@@ -67,15 +72,8 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 		} while (anio.size() != 4);
 	} while (stoi(anio) <= (objFecha.get_anio() - 100) || stoi(anio) >= (objFecha.get_anio() - 18));
 
-=======
-	do
-	{
-		do {
-			pantalla.gotoxy(4, 7);
-			anio = ingreso.IngresoNumero("Ingrese su anio de nacimiento: (AAAA):      \b\b\b\b\b\b");
-		} while (!edad.validar_anio(stoi(anio)));
-	} while (anio.size() != 4);
->>>>>>> dae9745652865a73f27ef22c573a08209a58cc64
+
+	
 
 	if (ingreso.anioBisiesto(stoi(anio))) {
 		diaEspecial = 29;
@@ -86,7 +84,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 		pantalla.gotoxy(4, 8);
 		mes = ingreso.IngresoNumero("Ingrese su mes de nacimiento: (mm):     \b\b\b\b\b");
 
-	} while (mes.size() != 2 || stoi(mes) <= 0 || stoi(mes) > 12);
+	} while (mes.size() != 2 || stoi(mes) <= 0 || stoi(mes) > 12 );
 
 	
 	do
@@ -107,7 +105,9 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	fechaNacimiento.setDia(stoi(dia)); // = new Fecha(stoi(dia), stoi(mes), stoi(anio));
 	fechaNacimiento.setMes(stoi(mes));
 	fechaNacimiento.setAnio(stoi(anio));
-	persona.setEdad(edad.calc_edad(fechaNacimiento));
+
+	edad.setNacimiento(fechaNacimiento);
+	persona.setEdad(edad.DiferenciaEntreFechas());
 
 	dato = generador.crearCorreo(persona.getApellido(), persona.getNombre(), cuentas);
 	cout << "\n\t Correo: " << dato;
@@ -131,9 +131,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 		{
 			tipoCuenta = 0;
 		}
-		
-		//if(tipoCuenta != 1 && tipoCuenta != 2)cout << "\033[B";
-		//if (tipoCuenta == NULL) 
+
 
 	} while (tipoCuenta != 1 && tipoCuenta != 2 );
 
@@ -153,11 +151,19 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 	do
 	{
 		pantalla.gotoxy(4, 22);
-		dato = ingreso.IngresoNumero("Ingrese su deposito inicial:          \b\b\b\b\b\b\b\b");
-		saldo = stof(dato);
-		cuenta.setSaldo(saldo);
+		try
+		{
+			dato = ingreso.IngresoNumero("Ingrese su deposito inicial:          \b\b\b\b\b\b\b\b");
+			saldo = stof(dato);
+			cuenta.setSaldo(saldo);
+		}
+		catch (const std::exception&)
+		{
+			saldo = 0.0f;
+		}
+		
 
-	} while (dato == "" || dato.size() != 2 || saldo< DEPOSITO_INICIAL_AHORROS);
+	} while (dato == "" || dato.size() != 2 || saldo< DEPOSITO_INICIAL);
 
 	cuenta.setPersona(persona);
 
@@ -244,6 +250,7 @@ void Opciones::buscarCuenta(Lista* cuentas) {
 void Opciones::mostarCuentas(Lista* cuentas) {
 
 	system("cls");
+	pantalla.gotoxy(2, 5);
 	cuentas->toString();
 	cout << "\n\t";
 	cout << "\n\t";
