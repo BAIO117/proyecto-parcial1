@@ -163,7 +163,7 @@ Cuenta Opciones::IngresarnuevaCuenta(Lista* cuentas) {
 		}
 		
 
-	} while (dato == "" || dato.size() != 2 || saldo< DEPOSITO_INICIAL);
+	} while ( saldo< DEPOSITO_INICIAL);
 
 	cuenta.setPersona(persona);
 

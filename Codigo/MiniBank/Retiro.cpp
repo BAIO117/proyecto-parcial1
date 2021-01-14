@@ -24,9 +24,12 @@ void Retiro::movimiento(Lista* cuentas, string idCuenta) {
         if (monto > aux.getSaldo()) {
             cout << "\n\tSaldo insuficiente...\n\t";
         }
-        aux = opc.buscarYTraer(cuentas, idCuenta);
-        cuentas->modificarNodo(idCuenta, aux.getSaldo() + monto);
-        cout << "\n\tTransaccion exitosa!";
+        else {
+            aux = opc.buscarYTraer(cuentas, idCuenta);
+            cuentas->modificarNodo(idCuenta, aux.getSaldo() - monto);
+            cout << "\n\tTransaccion exitosa!";
+        }
+        
     }
     else {
 
